@@ -1,412 +1,228 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bio-Smart Block | Innovation Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Figure 1 - IPO Compliant Drawing</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-        
-        :root {
-            --primary: #2563eb;
-            --success: #10b981;
-            --accent: #f59e0b;
-            --bg-neutral: #fafaf9;
+        /* IPO Margin Settings */
+        @page {
+            size: A4;
+            margin: 25mm 15mm 10mm 25mm; /* Top, Right, Bottom, Left */
         }
 
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: var(--bg-neutral);
+        body {
+            margin: 0;
+            padding: 0;
+            background: #fff;
+            font-family: Arial, sans-serif;
+            width: 210mm;
+            height: 297mm;
+            overflow: hidden;
         }
 
-        .glass {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .card-shadow {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
-        }
-
-        .chart-container {
-            position: relative;
+        /* Drawing Container */
+        .drawing-container {
             width: 100%;
-            height: 300px;
+            height: 260mm; /* Leave space for Fig label */
+            position: relative;
         }
 
-        /* 3D Visual Simulation (CSS) */
-        .block-viz {
-            perspective: 1000px;
-            width: 280px;
-            height: 140px;
-            transform-style: preserve-3d;
-            transition: all 0.6s ease;
-        }
-
-        .block-face {
-            position: absolute;
+        /* SVG Styles */
+        svg {
             width: 100%;
             height: 100%;
-            background: #e7e5e4;
-            border: 2px solid #d6d3d1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            color: #78716c;
-            backface-visibility: hidden;
         }
 
-        .side-r { width: 140px; transform: rotateY(90deg) translateZ(210px); }
-        .side-t { height: 140px; transform: rotateX(90deg) translateZ(70px); }
+        /* Line Weights per IPO Standards */
+        .visible-edge {
+            stroke: #000000;
+            stroke-width: 0.8mm;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
 
-        .crack-line {
+        .hidden-edge {
+            stroke: #000000;
+            stroke-width: 0.3mm;
+            fill: none;
+            stroke-dasharray: 4,2;            stroke-linecap: round;
+        }
+
+        .cut-surface {
+            fill: #ffffff; /* White fill for cutaway */
+            stroke: #000000;
+            stroke-width: 0.5mm;
+        }
+
+        .microcapsules {
+            fill: #000000;
+            stroke: none;
+        }
+
+        /* Reference Numerals */
+        .numeral-circle {
+            fill: #ffffff;
+            stroke: #000000;
+            stroke-width: 0.3mm;
+        }
+
+        .numeral-text {
+            font-family: Arial, sans-serif;
+            font-size: 4mm;
+            font-weight: normal;
+            fill: #000000;
+            text-anchor: middle;
+            dominant-baseline: middle;
+        }
+
+        .leader-line {
+            stroke: #000000;
+            stroke-width: 0.2mm;
+            fill: none;
+        }
+
+        /* Figure Label */
+        .figure-label {
             position: absolute;
-            background: #444;
-            height: 2px;
-            width: 0%;
-            top: 50%;
-            left: 10%;
-            transition: width 0.5s ease;
-            box-shadow: 0 0 5px rgba(0,0,0,0.5);
+            bottom: 5mm;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12pt;
+            font-weight: bold;
+            text-align: center;
         }
 
-        .healing-active .crack-line {
-            background: #10b981;
-            box-shadow: 0 0 10px #10b981;
-            height: 4px;
+        /* Scale Indicator */
+        .scale-indicator {
+            position: absolute;            bottom: 5mm;
+            right: 15mm;
+            font-size: 9pt;
         }
 
-        @keyframes pulse-green {
-            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        /* Print Optimization */
+        @media print {
+            body {
+                width: 210mm;
+                height: 297mm;
+            }
+            .drawing-container {
+                height: 260mm;
+            }
         }
-
-        .pulse-active { animation: pulse-green 2s infinite; }
     </style>
 </head>
-<body class="text-stone-900">
+<body>
+    <div class="drawing-container">
+        <svg viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
+            
+            <!-- ==================== HIDDEN LINES (Internal Features) ==================== -->
+            <!-- Functional Chamber Back Edges (Hidden) -->
+            <line x1="50" y1="90" x2="110" y2="90" class="hidden-edge" />
+            <line x1="50" y1="90" x2="40" y2="110" class="hidden-edge" />
+            <line x1="110" y1="90" x2="120" y2="110" class="hidden-edge" />
+            <line x1="40" y1="110" x2="120" y2="110" class="hidden-edge" />
+            
+            <!-- Microcapsules inside Functional Chamber (Hidden dots) -->
+            <circle cx="55" cy="95" r="1" class="microcapsules" />
+            <circle cx="65" cy="92" r="0.8" class="microcapsules" />
+            <circle cx="75" cy="95" r="1" class="microcapsules" />
+            <circle cx="85" cy="92" r="0.8" class="microcapsules" />
+            <circle cx="95" cy="95" r="1" class="microcapsules" />
+            <circle cx="105" cy="92" r="0.8" class="microcapsules" />
+            <circle cx="60" cy="102" r="0.8" class="microcapsules" />
+            <circle cx="70" cy="105" r="1" class="microcapsules" />
+            <circle cx="80" cy="102" r="0.8" class="microcapsules" />
+            <circle cx="90" cy="105" r="1" class="microcapsules" />
+            <circle cx="100" cy="102" r="0.8" class="microcapsules" />
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass border-b border-stone-200">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold italic">B</div>
-                <span class="font-extrabold text-xl tracking-tighter uppercase">Bio-Smart Block</span>
-            </div>
-            <div class="hidden md:flex gap-8 text-sm font-semibold text-stone-500">
-                <a href="#overview" class="hover:text-blue-600 transition">Overview</a>
-                <a href="#lab" class="hover:text-blue-600 transition">Simulation Lab</a>
-                <a href="#economics" class="hover:text-blue-600 transition">Economics</a>
-                <a href="#legal" class="hover:text-blue-600 transition">Patent Data</a>
-            </div>
-            <button class="bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 transition">
-                Export Report
-            </button>
-        </div>
-    </nav>
+            <!-- ==================== VISIBLE EDGES (Thick Lines) ==================== -->
+            <!-- Bottom Face -->
+            <polygon points="30,120 80,145 130,120 80,95" class="visible-edge" />
+            
+            <!-- Left Face -->
+            <polygon points="30,120 30,70 80,45 80,95" class="visible-edge" />
+            
+            <!-- Right Face -->
+            <polygon points="80,95 80,45 130,70 130,120" class="visible-edge" />            
+            <!-- Top Face (with Cutaway) -->
+            <!-- Outer Top Face -->
+            <polygon points="30,70 80,45 130,70 80,95" class="visible-edge" />
+            
+            <!-- Cutaway Section (Showing Internal Chambers) -->
+            <polygon points="45,75 80,58 115,75 80,92" class="cut-surface" />
+            <line x1="45" y1="75" x2="80" y2="58" class="visible-edge" />
+            <line x1="80" y1="58" x2="115" y2="75" class="visible-edge" />
+            <line x1="115" y1="75" x2="80" y2="92" class="visible-edge" />
+            <line x1="80" y1="92" x2="45" y2="75" class="visible-edge" />
 
-    <main class="pt-24 pb-12">
-        
-        <!-- Hero Section -->
-        <section id="overview" class="max-w-7xl mx-auto px-6 mb-20">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold mb-6">
-                        <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                        </span>
-                        PATENT PROVISIONAL SPECIFICATION (FORM 2)
-                    </div>
-                    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-[1.1]">
-                        The Future of <br> <span class="text-blue-600">Resilient Infrastructure</span>
-                    </h1>
-                    <p class="text-lg text-stone-600 mb-8 leading-relaxed max-w-xl">
-                        Developed by <strong>Aguru Manoj Kumar</strong>, this invention merges biological self-healing, 
-                        interlocking modularity, and IoT monitoring into a single, high-performance construction block.
-                    </p>
-                    
-                    <div class="flex flex-wrap gap-4">
-                        <div class="flex items-center gap-3 p-4 bg-white rounded-2xl border border-stone-100 card-shadow">
-                            <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-xl">🦠</div>
-                            <div>
-                                <p class="text-xs font-bold text-stone-400 uppercase">Healing</p>
-                                <p class="font-bold">Bacillus Mediated</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-3 p-4 bg-white rounded-2xl border border-stone-100 card-shadow">
-                            <div class="w-10 h-10 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center text-xl">🏗️</div>
-                            <div>
-                                <p class="text-xs font-bold text-stone-400 uppercase">Assembly</p>
-                                <p class="font-bold">Dry-Stackable</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- ==================== INTERLOCKING FEATURES ==================== -->
+            <!-- Male Protrusions (4) - Top -->
+            <polygon points="72,50 80,45 88,50 80,55" class="visible-edge" />
+            
+            <!-- Female Recesses (5) - Bottom Edge Indication -->
+            <path d="M 45,132 Q 62,138 80,132" class="visible-edge" fill="none" />
+            
+            <!-- Shear-key Protrusions (6) - Top Ridge -->
+            <line x1="55" y1="60" x2="105" y2="60" class="visible-edge" />
+            <line x1="55" y1="60" x2="55" y2="63" class="visible-edge" />
+            <line x1="105" y1="60" x2="105" y2="63" class="visible-edge" />
 
-                <!-- Simulation Lab Interface -->
-                <div id="lab" class="bg-stone-900 rounded-[32px] p-8 text-white relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 p-6 opacity-20 font-mono text-xs">LOG: READY_</div>
-                    <h3 class="text-xl font-bold mb-2">Simulation Lab v1.0</h3>
-                    <p class="text-stone-400 text-sm mb-8">Test the synergistic healing & monitoring system.</p>
-                    
-                    <div class="flex justify-center mb-12">
-                        <div id="blockModel" class="block-viz transform rotateX(-15deg) rotateY(25deg)">
-                            <div class="block-face">STRUCTURAL CORE</div>
-                            <div class="block-face side-r">INT-LOCK</div>
-                            <div class="block-face side-t">SMART-FACE</div>
-                            <div id="crack" class="crack-line"></div>
-                        </div>
-                    </div>
+            <!-- ==================== REFERENCE NUMERALS WITH LEADER LINES ==================== -->
+            <!-- Note: Numerals match IoT-Removed Specification (1-7) -->
+            
+            <!-- 1: Overall Block -->
+            <circle cx="75" cy="155" r="3.5" class="numeral-circle" />
+            <text x="75" y="155" class="numeral-text">1</text>
+            <line x1="75" y1="151.5" x2="75" y2="145" class="leader-line" />
+            
+            <!-- 2: Structural Matrix Chamber (Outer Shell) -->
+            <circle cx="15" cy="95" r="3.5" class="numeral-circle" />
+            <text x="15" y="95" class="numeral-text">2</text>
+            <line x1="18.5" y1="95" x2="28" y2="95" class="leader-line" />
+            
+            <!-- 3: Functional Healing Chamber (Internal) -->
+            <circle cx="75" y="50" r="3.5" class="numeral-circle" />
+            <text x="75" y="50" class="numeral-text">3</text>
+            <line x1="75" y1="53.5" x2="75" y2="60" class="leader-line" />
+            
+            <!-- 4: Male Protrusions -->
+            <circle cx="75" y="30" r="3.5" class="numeral-circle" />
+            <text x="75" y="30" class="numeral-text">4</text>
+            <line x1="75" y1="33.5" x2="78" y2="42" class="leader-line" />
+            
+            <!-- 5: Female Recesses -->
+            <circle cx="45" y="155" r="3.5" class="numeral-circle" />
+            <text x="45" y="155" class="numeral-text">5</text>            <line x1="48.5" y1="155" x2="58" y2="142" class="leader-line" />
+            
+            <!-- 6: Shear-key Protrusions -->
+            <circle cx="25" y="60" r="3.5" class="numeral-circle" />
+            <text x="25" y="60" class="numeral-text">6</text>
+            <line x1="28.5" y1="60" x2="52" y2="61" class="leader-line" />
+            
+            <!-- 7: Shear-key Recesses (Bottom) -->
+            <circle cx="135" y="140" r="3.5" class="numeral-circle" />
+            <text x="135" y="140" class="numeral-text">7</text>
+            <line x1="131.5" y1="140" x2="120" y2="130" class="leader-line" />
 
-                    <div class="grid grid-cols-2 gap-4 mb-8">
-                        <div class="p-4 bg-stone-800 rounded-2xl border border-stone-700">
-                            <p class="text-[10px] text-stone-500 uppercase font-bold mb-1">Strain Gauge</p>
-                            <p id="strainVal" class="text-xl font-mono font-bold text-blue-400">0.02 με</p>
-                        </div>
-                        <div class="p-4 bg-stone-800 rounded-2xl border border-stone-700">
-                            <p class="text-[10px] text-stone-500 uppercase font-bold mb-1">Crack Width</p>
-                            <p id="widthVal" class="text-xl font-mono font-bold text-stone-300">0.00 mm</p>
-                        </div>
-                    </div>
+        </svg>
+    </div>
 
-                    <button onclick="runSimulation()" id="simBtn" class="w-full py-4 bg-white text-stone-900 rounded-2xl font-bold hover:bg-stone-200 transition active:scale-95">
-                        Trigger Stress Event
-                    </button>
-                    
-                    <div id="statusMsg" class="mt-4 text-center text-xs font-bold text-emerald-500 opacity-0 transition">
-                        BACTERIAL ACTIVATION IN PROGRESS...
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Economics Section -->
-        <section id="economics" class="bg-blue-50 py-20 px-6 border-y border-blue-100">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl font-extrabold mb-4">Carbon Sequestration & ROI</h2>
-                    <p class="text-stone-600 max-w-2xl mx-auto">Calculate the financial and environmental impact based on the blocks' unique material composition and mineralization capability.</p>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white p-8 rounded-3xl card-shadow">
-                        <h4 class="font-bold text-stone-400 text-xs uppercase mb-4">Project Parameters</h4>
-                        <div class="space-y-6">
-                            <div>
-                                <label class="block text-sm font-bold mb-2">Block Count</label>
-                                <input type="range" min="1000" max="100000" step="1000" value="10000" id="countInput" class="w-full h-2 bg-stone-100 rounded-lg appearance-none cursor-pointer accent-blue-600">
-                                <div class="flex justify-between mt-2 font-bold text-blue-600" id="countDisplay">10,000 Units</div>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-bold mb-2">Clinker Sub. %</label>
-                                <select id="subSelect" class="w-full p-3 bg-stone-50 border border-stone-200 rounded-xl font-semibold">
-                                    <option value="0.3">30% (Fly Ash)</option>
-                                    <option value="0.5" selected>50% (GGBS)</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="md:col-span-2 bg-white p-8 rounded-3xl card-shadow grid sm:grid-cols-2 gap-12">
-                        <div class="chart-container">
-                            <canvas id="carbonPie"></canvas>
-                        </div>
-                        <div class="space-y-6 flex flex-col justify-center">
-                            <div class="p-4 bg-emerald-50 rounded-2xl border border-emerald-100">
-                                <p class="text-xs font-bold text-emerald-600 uppercase mb-1">CO₂ Mineralized (Est.)</p>
-                                <p id="mineralVal" class="text-2xl font-extrabold text-stone-900">88.0 kg</p>
-                            </div>
-                            <div class="p-4 bg-blue-50 rounded-2xl border border-blue-100">
-                                <p class="text-xs font-bold text-blue-600 uppercase mb-1">Carbon Credit Yield</p>
-                                <p id="creditVal" class="text-2xl font-extrabold text-stone-900">₹142,500</p>
-                            </div>
-                            <p class="text-[10px] text-stone-400 leading-tight">
-                                *Estimates based on CCTS price of ₹1,500/tonne and IS 12089:1987 compliance.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Technical Data Section -->
-        <section id="legal" class="max-w-7xl mx-auto px-6 py-20">
-            <h3 class="text-2xl font-extrabold mb-10 text-center">Technical Specification Summary</h3>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="p-6 bg-white rounded-3xl border border-stone-200">
-                    <h5 class="font-bold text-blue-600 mb-4">Concrete Matrix</h5>
-                    <ul class="text-sm space-y-2 text-stone-600">
-                        <li>• OPC 43 Grade (IS 8112)</li>
-                        <li>• GGBS (IS 12089)</li>
-                        <li>• Superplasticizer (IS 9103)</li>
-                        <li>• Compressive: 32 MPa</li>
-                    </ul>
-                </div>
-                <div class="p-6 bg-white rounded-3xl border border-stone-200">
-                    <h5 class="font-bold text-emerald-600 mb-4">Bio-Healing</h5>
-                    <ul class="text-sm space-y-2 text-stone-600">
-                        <li>• Bacillus pseudofirmus</li>
-                        <li>• Spores: 10⁹ CFU/g</li>
-                        <li>• Calcium Lactate nutrient</li>
-                        <li>• pH trigger: 9.5-10.5</li>
-                    </ul>
-                </div>
-                <div class="p-6 bg-white rounded-3xl border border-stone-200">
-                    <h5 class="font-bold text-amber-600 mb-4">Interlocking</h5>
-                    <ul class="text-sm space-y-2 text-stone-600">
-                        <li>• Tapered Dovetail</li>
-                        <li>• Friction-fit Engagement</li>
-                        <li>• Shear-key alignment</li>
-                        <li>• Mortar-free design</li>
-                    </ul>
-                </div>
-                <div class="p-6 bg-white rounded-3xl border border-stone-200">
-                    <h5 class="font-bold text-purple-600 mb-4">IoT Node</h5>
-                    <ul class="text-sm space-y-2 text-stone-600">
-                        <li>• MCU: Low-power ESP32</li>
-                        <li>• BLE 5.0 / LoRaWAN</li>
-                        <li>• Resistive Strain Gauge</li>
-                        <li>• Cap. Crack Sensor</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-stone-950 text-stone-500 py-16 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-center md:text-left">
-                <h4 class="text-white font-bold text-lg mb-2">Bio-Smart Block Dashboard</h4>
-                <p class="text-xs">Patent Applicant: Aguru Manoj Kumar</p>
-                <p class="text-xs">Andhra Pradesh, India | 2024</p>
-            </div>
-            <div class="flex gap-4">
-                <div class="w-10 h-10 border border-stone-800 rounded-xl flex items-center justify-center hover:text-white transition cursor-pointer">IN</div>
-                <div class="w-10 h-10 border border-stone-800 rounded-xl flex items-center justify-center hover:text-white transition cursor-pointer">WEB</div>
-            </div>
-        </div>
-    </footer>
+    <!-- Figure Label -->
+    <div class="figure-label">Fig. 1</div>
+    
+    <!-- Scale Indicator -->
+    <div class="scale-indicator">Scale: 1:2</div>
 
     <script>
-        // --- 1. Simulation Lab Logic ---
-        const simulation = {
-            active: false,
-            crack: document.getElementById('crack'),
-            btn: document.getElementById('simBtn'),
-            strain: document.getElementById('strainVal'),
-            width: document.getElementById('widthVal'),
-            msg: document.getElementById('statusMsg')
-        };
-
-        function runSimulation() {
-            if (simulation.active) return;
-            simulation.active = true;
-            simulation.btn.disabled = true;
-            simulation.btn.innerText = "Processing stress...";
-
-            // Trigger Crack
-            simulation.crack.style.width = "80%";
-            simulation.strain.innerText = "142.5 με";
-            simulation.width.innerText = "0.45 mm";
-            simulation.width.classList.add('text-red-400');
-
-            // Healing sequence
-            setTimeout(() => {
-                simulation.msg.style.opacity = "1";
-                document.getElementById('blockModel').classList.add('pulse-active', 'healing-active');
-                simulation.msg.innerText = "PH DROP DETECTED... RELEASING BACILLUS";
-            }, 1000);
-
-            setTimeout(() => {
-                simulation.msg.innerText = "PRECIPITATING CALCITE (CaCO3)...";
-                simulation.width.innerText = "0.12 mm";
-            }, 3000);
-
-            setTimeout(() => {
-                simulation.crack.style.width = "0%";
-                simulation.width.innerText = "0.02 mm";
-                simulation.width.classList.remove('text-red-400');
-                simulation.width.classList.add('text-emerald-400');
-                simulation.msg.innerText = "STRUCTURAL INTEGRITY RESTORED";
-                simulation.btn.innerText = "Reset System";
-                simulation.btn.disabled = false;
-                simulation.btn.onclick = resetLab;
-            }, 6000);
-        }
-
-        function resetLab() {
-            simulation.active = false;
-            simulation.btn.innerText = "Trigger Stress Event";
-            simulation.btn.onclick = runSimulation;
-            simulation.crack.style.width = "0%";
-            simulation.strain.innerText = "0.02 με";
-            simulation.width.innerText = "0.00 mm";
-            simulation.width.classList.remove('text-emerald-400', 'text-red-400');
-            simulation.msg.style.opacity = "0";
-            document.getElementById('blockModel').classList.remove('pulse-active', 'healing-active');
-        }
-
-        // --- 2. Economics Chart & Logic ---
-        let carbonPie = null;
-        
-        function initEconomics() {
-            const ctx = document.getElementById('carbonPie').getContext('2d');
-            carbonPie = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Avoided CO₂', 'Mineralized CO₂'],
-                    datasets: [{
-                        data: [70, 30],
-                        backgroundColor: ['#3b82f6', '#10b981'],
-                        borderWidth: 0,
-                        hoverOffset: 10
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { position: 'bottom' } },
-                    cutout: '70%'
-                }
-            });
-
-            const input = document.getElementById('countInput');
-            const sub = document.getElementById('subSelect');
-
-            const update = () => {
-                const count = parseInt(input.value);
-                const subFactor = parseFloat(sub.value);
-                
-                document.getElementById('countDisplay').innerText = count.toLocaleString() + " Units";
-                
-                // Simplified Math from Patent Data
-                // Block ~20kg. CO2 savings ~0.38kg/block for 50% sub. Mineralization ~0.02kg/block.
-                const avoided = Math.round(count * 0.38 * (subFactor / 0.5));
-                const mineralized = Math.round(count * 0.02);
-                const totalTonnes = (avoided + mineralized) / 1000;
-                
-                document.getElementById('mineralVal').innerText = mineralized.toLocaleString() + " kg";
-                document.getElementById('creditVal').innerText = "₹" + Math.round(totalTonnes * 1500).toLocaleString();
-                
-                carbonPie.data.datasets[0].data = [avoided, mineralized];
-                carbonPie.update();
-            };
-
-            input.addEventListener('input', update);
-            sub.addEventListener('change', update);
-            update();
-        }
-
-        // --- Global Init ---
-        window.onload = () => {
-            initEconomics();
-        };
+        // Print shortcut
+        window.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'p') {
+                e.preventDefault();
+                window.print();
+            }
+        });
     </script>
 </body>
 </html>
