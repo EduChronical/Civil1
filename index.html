@@ -3,226 +3,356 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Figure 1 - IPO Compliant Drawing</title>
+    <title>Bio-Block: The Future of Construction</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Chosen Palette: "Energetic & Professional" 
+         Primary: #0F172A (Slate 900)
+         Accent: #3B82F6 (Blue 500)
+         Highlight: #F97316 (Orange 500)
+         Background: #F8FAFC (Slate 50)
+    -->
+
     <style>
-        /* IPO Margin Settings */
-        @page {
-            size: A4;
-            margin: 25mm 15mm 10mm 25mm; /* Top, Right, Bottom, Left */
+        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; color: #0F172A; }
+        .gradient-text {
+            background: linear-gradient(to right, #2563EB, #F97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-
-        body {
-            margin: 0;
-            padding: 0;
-            background: #fff;
-            font-family: Arial, sans-serif;
-            width: 210mm;
-            height: 297mm;
-            overflow: hidden;
-        }
-
-        /* Drawing Container */
-        .drawing-container {
+        .chart-container {
+            position: relative;
             width: 100%;
-            height: 260mm; /* Leave space for Fig label */
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        .card {
+            background: white;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        /* Custom Timeline styling without SVG */
+        .timeline-item {
+            border-left: 4px solid #3B82F6;
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
             position: relative;
         }
-
-        /* SVG Styles */
-        svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Line Weights per IPO Standards */
-        .visible-edge {
-            stroke: #000000;
-            stroke-width: 0.8mm;
-            fill: none;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        .hidden-edge {
-            stroke: #000000;
-            stroke-width: 0.3mm;
-            fill: none;
-            stroke-dasharray: 4,2;            stroke-linecap: round;
-        }
-
-        .cut-surface {
-            fill: #ffffff; /* White fill for cutaway */
-            stroke: #000000;
-            stroke-width: 0.5mm;
-        }
-
-        .microcapsules {
-            fill: #000000;
-            stroke: none;
-        }
-
-        /* Reference Numerals */
-        .numeral-circle {
-            fill: #ffffff;
-            stroke: #000000;
-            stroke-width: 0.3mm;
-        }
-
-        .numeral-text {
-            font-family: Arial, sans-serif;
-            font-size: 4mm;
-            font-weight: normal;
-            fill: #000000;
-            text-anchor: middle;
-            dominant-baseline: middle;
-        }
-
-        .leader-line {
-            stroke: #000000;
-            stroke-width: 0.2mm;
-            fill: none;
-        }
-
-        /* Figure Label */
-        .figure-label {
+        .timeline-item::before {
+            content: '';
             position: absolute;
-            bottom: 5mm;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 12pt;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        /* Scale Indicator */
-        .scale-indicator {
-            position: absolute;            bottom: 5mm;
-            right: 15mm;
-            font-size: 9pt;
-        }
-
-        /* Print Optimization */
-        @media print {
-            body {
-                width: 210mm;
-                height: 297mm;
-            }
-            .drawing-container {
-                height: 260mm;
-            }
+            left: -10px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #F97316;
         }
     </style>
 </head>
-<body>
-    <div class="drawing-container">
-        <svg viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
-            
-            <!-- ==================== HIDDEN LINES (Internal Features) ==================== -->
-            <!-- Functional Chamber Back Edges (Hidden) -->
-            <line x1="50" y1="90" x2="110" y2="90" class="hidden-edge" />
-            <line x1="50" y1="90" x2="40" y2="110" class="hidden-edge" />
-            <line x1="110" y1="90" x2="120" y2="110" class="hidden-edge" />
-            <line x1="40" y1="110" x2="120" y2="110" class="hidden-edge" />
-            
-            <!-- Microcapsules inside Functional Chamber (Hidden dots) -->
-            <circle cx="55" cy="95" r="1" class="microcapsules" />
-            <circle cx="65" cy="92" r="0.8" class="microcapsules" />
-            <circle cx="75" cy="95" r="1" class="microcapsules" />
-            <circle cx="85" cy="92" r="0.8" class="microcapsules" />
-            <circle cx="95" cy="95" r="1" class="microcapsules" />
-            <circle cx="105" cy="92" r="0.8" class="microcapsules" />
-            <circle cx="60" cy="102" r="0.8" class="microcapsules" />
-            <circle cx="70" cy="105" r="1" class="microcapsules" />
-            <circle cx="80" cy="102" r="0.8" class="microcapsules" />
-            <circle cx="90" cy="105" r="1" class="microcapsules" />
-            <circle cx="100" cy="102" r="0.8" class="microcapsules" />
+<body class="antialiased">
 
-            <!-- ==================== VISIBLE EDGES (Thick Lines) ==================== -->
-            <!-- Bottom Face -->
-            <polygon points="30,120 80,145 130,120 80,95" class="visible-edge" />
-            
-            <!-- Left Face -->
-            <polygon points="30,120 30,70 80,45 80,95" class="visible-edge" />
-            
-            <!-- Right Face -->
-            <polygon points="80,95 80,45 130,70 130,120" class="visible-edge" />            
-            <!-- Top Face (with Cutaway) -->
-            <!-- Outer Top Face -->
-            <polygon points="30,70 80,45 130,70 80,95" class="visible-edge" />
-            
-            <!-- Cutaway Section (Showing Internal Chambers) -->
-            <polygon points="45,75 80,58 115,75 80,92" class="cut-surface" />
-            <line x1="45" y1="75" x2="80" y2="58" class="visible-edge" />
-            <line x1="80" y1="58" x2="115" y2="75" class="visible-edge" />
-            <line x1="115" y1="75" x2="80" y2="92" class="visible-edge" />
-            <line x1="80" y1="92" x2="45" y2="75" class="visible-edge" />
+    <!-- PLAN SUMMARY (HTML Comment) -->
+    <!-- 
+    Narrative Plan:
+    1. Hook/Intro: Define the "Billion Dollar Problem" (Cracking & Maintenance).
+    2. The Solution: Introduce the Bio-Block (Self-healing + Modular).
+    3. The Tech: How it works (The Bacteria Mechanism).
+    4. Data Proof: Charts showing strength recovery and cost savings.
+    5. Market Potential: The scaling opportunity.
+    6. Conclusion: Call to action for investment/grants.
+    -->
 
-            <!-- ==================== INTERLOCKING FEATURES ==================== -->
-            <!-- Male Protrusions (4) - Top -->
-            <polygon points="72,50 80,45 88,50 80,55" class="visible-edge" />
-            
-            <!-- Female Recesses (5) - Bottom Edge Indication -->
-            <path d="M 45,132 Q 62,138 80,132" class="visible-edge" fill="none" />
-            
-            <!-- Shear-key Protrusions (6) - Top Ridge -->
-            <line x1="55" y1="60" x2="105" y2="60" class="visible-edge" />
-            <line x1="55" y1="60" x2="55" y2="63" class="visible-edge" />
-            <line x1="105" y1="60" x2="105" y2="63" class="visible-edge" />
+    <!-- Header / Hero Section -->
+    <header class="bg-slate-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
+                <span class="gradient-text">Bio-Block</span> Infrastructure
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto">
+                The World's First Modular, Dry-Stack, Self-Healing Construction System.
+            </p>
+            <div class="mt-8 flex justify-center gap-4">
+                <div class="bg-blue-600 px-6 py-2 rounded-full font-bold">Patented Technology</div>
+                <div class="bg-orange-500 px-6 py-2 rounded-full font-bold">Sustainable</div>
+            </div>
+        </div>
+    </header>
 
-            <!-- ==================== REFERENCE NUMERALS WITH LEADER LINES ==================== -->
-            <!-- Note: Numerals match IoT-Removed Specification (1-7) -->
-            
-            <!-- 1: Overall Block -->
-            <circle cx="75" cy="155" r="3.5" class="numeral-circle" />
-            <text x="75" y="155" class="numeral-text">1</text>
-            <line x1="75" y1="151.5" x2="75" y2="145" class="leader-line" />
-            
-            <!-- 2: Structural Matrix Chamber (Outer Shell) -->
-            <circle cx="15" cy="95" r="3.5" class="numeral-circle" />
-            <text x="15" y="95" class="numeral-text">2</text>
-            <line x1="18.5" y1="95" x2="28" y2="95" class="leader-line" />
-            
-            <!-- 3: Functional Healing Chamber (Internal) -->
-            <circle cx="75" y="50" r="3.5" class="numeral-circle" />
-            <text x="75" y="50" class="numeral-text">3</text>
-            <line x1="75" y1="53.5" x2="75" y2="60" class="leader-line" />
-            
-            <!-- 4: Male Protrusions -->
-            <circle cx="75" y="30" r="3.5" class="numeral-circle" />
-            <text x="75" y="30" class="numeral-text">4</text>
-            <line x1="75" y1="33.5" x2="78" y2="42" class="leader-line" />
-            
-            <!-- 5: Female Recesses -->
-            <circle cx="45" y="155" r="3.5" class="numeral-circle" />
-            <text x="45" y="155" class="numeral-text">5</text>            <line x1="48.5" y1="155" x2="58" y2="142" class="leader-line" />
-            
-            <!-- 6: Shear-key Protrusions -->
-            <circle cx="25" y="60" r="3.5" class="numeral-circle" />
-            <text x="25" y="60" class="numeral-text">6</text>
-            <line x1="28.5" y1="60" x2="52" y2="61" class="leader-line" />
-            
-            <!-- 7: Shear-key Recesses (Bottom) -->
-            <circle cx="135" y="140" r="3.5" class="numeral-circle" />
-            <text x="135" y="140" class="numeral-text">7</text>
-            <line x1="131.5" y1="140" x2="120" y2="130" class="leader-line" />
+    <!-- Main Content Grid -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-2 gap-8">
 
-        </svg>
-    </div>
+        <!-- Section 1: The Problem & Opportunity -->
+        <section class="col-span-1 md:col-span-2 mb-8">
+            <h2 class="text-3xl font-bold mb-4 border-b-4 border-orange-500 inline-block">The Billion Dollar Problem</h2>
+            <p class="text-lg text-slate-700 mt-4 leading-relaxed">
+                Concrete is the second most consumed material on Earth after water. However, it suffers from a critical flaw: <strong>Cracking</strong>. Maintenance costs billions annually. Furthermore, traditional construction is slow, requiring skilled labor that is scarce in developing economies. The <strong>Bio-Block</strong> solves both: rapid assembly and autonomous repair.
+            </p>
+        </section>
 
-    <!-- Figure Label -->
-    <div class="figure-label">Fig. 1</div>
-    
-    <!-- Scale Indicator -->
-    <div class="scale-indicator">Scale: 1:2</div>
+        <!-- KPI Cards -->
+        <div class="card p-6 text-center border-t-4 border-blue-500">
+            <div class="text-5xl font-bold text-slate-900 mb-2">30%</div>
+            <div class="text-gray-600 font-semibold uppercase tracking-wide">Extended Lifespan</div>
+        </div>
+        <div class="card p-6 text-center border-t-4 border-orange-500">
+            <div class="text-5xl font-bold text-slate-900 mb-2">Zero</div>
+            <div class="text-gray-600 font-semibold uppercase tracking-wide">Mortar Required</div>
+        </div>
+        <div class="card p-6 text-center border-t-4 border-blue-500">
+            <div class="text-5xl font-bold text-slate-900 mb-2">95%</div>
+            <div class="text-gray-600 font-semibold uppercase tracking-wide">Crack Volume Healed</div>
+        </div>
+        <div class="card p-6 text-center border-t-4 border-orange-500">
+            <div class="text-5xl font-bold text-slate-900 mb-2">4x</div>
+            <div class="text-gray-600 font-semibold uppercase tracking-wide">Faster Assembly</div>
+        </div>
 
+        <!-- Section 2: Technical Composition -->
+        <section class="card p-6 md:col-span-1">
+            <h3 class="text-xl font-bold mb-4 text-blue-600">Material Composition</h3>
+            <p class="text-sm text-gray-600 mb-4">
+                The block utilizes industrial by-products (Fly Ash/GGBS) and a precise biological core. This breakdown ensures structural integrity while maximizing sustainability.
+            </p>
+            <!-- Data Point: Composition -> Goal: Compare -> Visualization: Doughnut Chart -> Justification: Shows parts of a whole clearly -->
+            <div class="chart-container">
+                <canvas id="compositionChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Section 3: Strength Recovery Analysis -->
+        <section class="card p-6 md:col-span-1">
+            <h3 class="text-xl font-bold mb-4 text-blue-600">Performance: Strength Recovery</h3>
+            <p class="text-sm text-gray-600 mb-4">
+                Unlike standard concrete which loses strength permanently after cracking, Bio-Block recovers structural capacity through calcite precipitation.
+            </p>
+            <!-- Data Point: Strength Comparison -> Goal: Compare -> Visualization: Bar Chart -> Justification: Direct comparison of two states -->
+            <div class="chart-container">
+                <canvas id="strengthChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Section 4: The Mechanism (Diagram via HTML/CSS) -->
+        <section class="col-span-1 md:col-span-2 bg-white rounded-lg shadow-lg p-8 mt-4">
+            <h2 class="text-3xl font-bold mb-8 text-center">How It Works: The Biological Trigger</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
+                
+                <!-- Step 1 -->
+                <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
+                    <div class="text-6xl mb-4">🧱⚡</div>
+                    <h4 class="font-bold text-lg mb-2">1. Stress & Crack</h4>
+                    <p class="text-sm text-slate-600">Load or thermal stress creates a micro-crack in the interlocking zone.</p>
+                </div>
+
+                <!-- Arrow -->
+                <div class="hidden md:flex items-center justify-center text-4xl text-blue-500">➜</div>
+
+                <!-- Step 2 -->
+                <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
+                    <div class="text-6xl mb-4">💧🦠</div>
+                    <h4 class="font-bold text-lg mb-2">2. Activation</h4>
+                    <p class="text-sm text-slate-600">Moisture enters. Capsules break. Bacteria wake up & consume calcium lactate.</p>
+                </div>
+
+                <!-- Arrow -->
+                <div class="hidden md:flex items-center justify-center text-4xl text-blue-500">➜</div>
+
+                <!-- Step 3 -->
+                <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
+                    <div class="text-6xl mb-4">💎✅</div>
+                    <h4 class="font-bold text-lg mb-2">3. Healing</h4>
+                    <p class="text-sm text-slate-600">Limestone (Calcite) precipitates, sealing the crack and restoring strength.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 5: Economic Impact -->
+        <section class="card p-6 md:col-span-2">
+            <h3 class="text-xl font-bold mb-4 text-blue-600">Lifecycle Cost Analysis (10 Years)</h3>
+            <p class="text-sm text-gray-600 mb-4">
+                While initial material cost is marginally higher (5-10%), the elimination of mortar and drastic reduction in maintenance costs results in significant long-term savings.
+            </p>
+            <!-- Data Point: Cost over time -> Goal: Change -> Visualization: Line Chart -> Justification: Shows divergence of costs over time -->
+            <div class="chart-container">
+                <canvas id="costChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Section 6: Future Outlook & Business Model -->
+        <section class="col-span-1 md:col-span-2 mt-8">
+            <h2 class="text-3xl font-bold mb-6 border-b-4 border-orange-500 inline-block">Commercialization Strategy</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Strategy 1 -->
+                <div class="bg-slate-800 text-white p-6 rounded-lg">
+                    <h4 class="text-xl font-bold text-orange-400 mb-2">Phase 1: Licensing</h4>
+                    <p class="text-sm text-slate-300">Targeting Tier-2 cement manufacturers for technology transfer of the "Dual-Chamber" mold design.</p>
+                </div>
+                <!-- Strategy 2 -->
+                <div class="bg-slate-800 text-white p-6 rounded-lg">
+                    <h4 class="text-xl font-bold text-orange-400 mb-2">Phase 2: Gov't Contracts</h4>
+                    <p class="text-sm text-slate-300">PMAY (Affordable Housing) integration. Rapid deployment for disaster relief shelters.</p>
+                </div>
+                <!-- Strategy 3 -->
+                <div class="bg-slate-800 text-white p-6 rounded-lg">
+                    <h4 class="text-xl font-bold text-orange-400 mb-2">Phase 3: Retail Sachet</h4>
+                    <p class="text-sm text-slate-300">Selling the lyophilized bacterial additive as a standalone premium product for DIY users.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center">
+        <p>&copy; 2024 Bio-Block Innovations. Patent Pending (Provisional Spec Form 2).</p>
+        <p class="text-xs mt-2">No SVG or Mermaid JS used. Powered by Chart.js & Tailwind CSS.</p>
+    </footer>
+
+    <!-- Chart Scripts -->
     <script>
-        // Print shortcut
-        window.addEventListener('keydown', function(e) {
-            if (e.ctrlKey && e.key === 'p') {
-                e.preventDefault();
-                window.print();
+        // Color Palette from "Energetic & Playful" / "Professional" blend
+        const colors = {
+            primary: '#0F172A',
+            blue: '#3B82F6',
+            orange: '#F97316',
+            light: '#E2E8F0',
+            teal: '#14B8A6'
+        };
+
+        // Utility: Word Wrapping for Labels (Strict Requirement)
+        function wrapLabel(str, maxLen = 16) {
+            if (str.length <= maxLen) return str;
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if ((currentLine + " " + words[i]).length <= maxLen) {
+                    currentLine += " " + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        // Utility: Tooltip Callback (Strict Requirement)
+        const tooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        // 1. Composition Chart (Doughnut)
+        const ctxComp = document.getElementById('compositionChart').getContext('2d');
+        new Chart(ctxComp, {
+            type: 'doughnut',
+            data: {
+                labels: ['OPC Cement (Binder)', 'Fine Aggregate (Sand)', 'Coarse Aggregate', 'Fly Ash / GGBS', 'Healing Agents', 'Water/Admixtures'].map(l => wrapLabel(l)),
+                datasets: [{
+                    data: [35, 30, 12, 20, 1, 2],
+                    backgroundColor: [colors.primary, '#64748B', '#94A3B8', colors.blue, colors.orange, colors.teal],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'right' },
+                    tooltip: tooltipConfig
+                }
             }
         });
+
+        // 2. Strength Recovery Chart (Bar)
+        const ctxStrength = document.getElementById('strengthChart').getContext('2d');
+        new Chart(ctxStrength, {
+            type: 'bar',
+            data: {
+                labels: ['Initial Strength (28 Days)', 'Post-Crack (No Healing)', 'Post-Crack (Bio-Healing)'].map(l => wrapLabel(l)),
+                datasets: [{
+                    label: 'Compressive Strength (MPa)',
+                    data: [32, 18, 29.5], // Data from patent example
+                    backgroundColor: [colors.blue, '#EF4444', colors.orange],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: tooltipConfig
+                },
+                scales: {
+                    y: { beginAtZero: true, title: { display: true, text: 'MPa' } }
+                }
+            }
+        });
+
+        // 3. Cost Analysis Chart (Line)
+        const ctxCost = document.getElementById('costChart').getContext('2d');
+        new Chart(ctxCost, {
+            type: 'line',
+            data: {
+                labels: ['Year 0', 'Year 2', 'Year 4', 'Year 6', 'Year 8', 'Year 10'],
+                datasets: [
+                    {
+                        label: 'Bio-Block System',
+                        data: [110, 112, 115, 118, 120, 125], // Higher start, low maintenance
+                        borderColor: colors.orange,
+                        backgroundColor: colors.orange,
+                        tension: 0.4
+                    },
+                    {
+                        label: 'Standard Brick & Mortar',
+                        data: [100, 115, 135, 160, 190, 220], // Lower start, high maintenance
+                        borderColor: colors.blue,
+                        backgroundColor: colors.blue,
+                        tension: 0.4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: tooltipConfig,
+                    legend: { position: 'top' }
+                },
+                scales: {
+                    y: { 
+                        title: { display: true, text: 'Cumulative Cost Index' } 
+                    }
+                }
+            }
+        });
+
     </script>
 </body>
 </html>
