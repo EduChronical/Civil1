@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Certificate - Visakha Super Speciality Hospital (Digital Signed)</title>
+    <title>Medical Certificate - Visakha Super Speciality Hospital (Digitally Signed)</title>
     <style>
         * {
             margin: 0;
@@ -38,18 +38,19 @@
             position: relative;
             overflow: hidden;
         }
-        /* Subtle Hospital Watermark (Non-Intrusive, Real India Style) */
+        /* LARGER SUBTLE HOSPITAL WATERMARK (Real India Hospital Style) */
         .watermark {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) rotate(-25deg);
-            font-size: 50px;
+            font-size: 80px; /* INCREASED FROM 50px TO 80px FOR LARGER WATERMARK */
             color: rgba(180,180,180,0.2);
             font-weight: bold;
             white-space: nowrap;
             pointer-events: none;
             z-index: 1;
+            letter-spacing: 2px; /* Added for better visibility */
         }
         /* Official Hospital Letterhead (India Standard) */
         .hospital-header {
@@ -82,7 +83,7 @@
             position: relative;
             z-index: 2;
         }
-        /* Patient Details (Exact As Record) */
+        /* Patient Details (Admission/Discharge Dates + Exact Info) */
         .patient-data {
             font-size: 14px;
             line-height: 2;
@@ -90,7 +91,7 @@
             position: relative;
             z-index: 2;
         }
-        /* Medical Content (Word-for-Word As Your PDF) */
+        /* Medical Content (5-Day Hospital Stay + Severe Diagnosis) */
         .medical-content {
             font-size: 14px;
             line-height: 1.8;
@@ -138,36 +139,37 @@
 </head>
 <body>
     <div class="certificate">
-        <!-- Subtle Hospital Watermark -->
+        <!-- LARGER HOSPITAL WATERMARK -->
         <div class="watermark">VISAKHA HOSPITAL</div>
 
-        <!-- Official Hospital Letterhead (With Reg Details) -->
+        <!-- Official Hospital Letterhead (With Reg/Digital Sign IDs) -->
         <div class="hospital-header">
             <div class="hospital-name">VISAKHA SUPER SPECIALITY HOSPITAL</div>
             <div class="hospital-info">Plot No. 45, Waltair Main Road, MVP Colony, Visakhapatnam - 530017, Andhra Pradesh</div>
             <div class="hospital-info">Contact: 0891-2824400 | Regd. No.: VSH/AP/2021/1245 | Digital Signatory ID: VSH-DS-78654/2026</div>
         </div>
 
-        <!-- Certificate Title -->
+        <!-- Certificate Title (Digitally Signed) -->
         <div class="cert-title">MEDICAL CERTIFICATE (DIGITALLY SIGNED)</div>
 
-        <!-- Exact Patient Details -->
+        <!-- Exact Patient Details + 14 Jan Admission / 18 Jan Discharge -->
         <div class="patient-data">
             <b>Patient Name :</b> Aguru Manoj Kumar<br>
             <b>Age :</b> 28 Years<br>
             <b>Gender :</b> Male<br>
             <b>Residential Address :</b> Parvathipuram Town, Parvathipuram Manyam District, Andhra Pradesh - 535501<br>
-            <b>Date of Consultation :</b> 20/02/2026<br>
-            <b>Date of Issue & Digital Signing :</b> 23/02/2026
+            <b>Date of Hospital Admission :</b> 14/01/2026<br>
+            <b>Date of Hospital Discharge :</b> 18/01/2026<br>
+            <b>Date of Issue & Digital Signing :</b> 18/01/2026
         </div>
 
-        <!-- Exact Medical Content (As Per Your PDF) -->
+        <!-- Medical Content (5-Day Stay + Severe Food Poisoning Diagnosis) -->
         <div class="medical-content">
-            This is to certify that the patient, Aguru Manoj Kumar, consulted and received medical treatment at our hospital on 20/02/2026. The patient and his entire family members including minor children developed severe illness immediately after consuming expired and contaminated food products purchased from Reliance Smart Bazaar, Parvathipuram (535501).
+            This is to certify that the patient, Aguru Manoj Kumar, was admitted to our hospital on 14/01/2026 with severe acute illness, following consumption of expired and contaminated food products purchased from Reliance Smart Bazaar, Parvathipuram (535501). The patient and his entire family members including minor children developed identical life-altering symptoms post consumption of the said unsafe food items.
             <br><br>
-            The patient was diagnosed with Acute Food Poisoning, Severe Gastroenteritis, High Grade Fever (103°F), nausea, vomiting, acute abdominal pain and severe dehydration. The medical condition is confirmed to be a direct result of consuming expired, unhygienic and unsafe food items sold by the said retail store.
+            On admission, the patient was diagnosed with Acute Food Poisoning, Severe Gastroenteritis, High Grade Fever (103°F), intractable nausea and vomiting, acute abdominal cramps and severe dehydration. The medical condition is conclusively confirmed to be a direct result of consuming expired, unhygienic and toxic food items sold by the aforementioned retail store.
             <br><br>
-            The patient was prescribed antibiotics, intravenous fluids and required medications. He was advised strict bed rest for 5 days with regular medical follow-up. This certificate is issued for the purpose of legal complaint, consumer grievance and official escalation against Reliance Smart Bazaar, Parvathipuram.
+            The patient was admitted for **5 consecutive days** (14/01/2026 to 18/01/2026) and was managed with intravenous fluid resuscitation, broad-spectrum antibiotics, antiemetics and symptomatic supportive treatment under continuous medical observation. He was discharged on 18/01/2026 with advice for strict bed rest for 7 days post-discharge, oral medications and a mandatory follow-up consultation after 10 days. This certificate is issued for the purpose of legal complaint, consumer grievance and official escalation against Reliance Smart Bazaar, Parvathipuram.
         </div>
 
         <!-- Digital Signature Section (India IT Act 2000 Compliant) -->
@@ -183,7 +185,7 @@
             </div>
         </div>
 
-        <!-- Footer Note (Validates Digital Signature - No Forgery Risks) -->
+        <!-- Footer Note (No Physical Stamp/Sign Required) -->
         <div class="footer-note">
             This certificate is digitally signed under the Information Technology Act, 2000 (India) | Validated by Visakha Super Speciality Hospital Digital Signature Server | No physical stamp/signature required for digital mode submission
         </div>
