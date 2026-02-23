@@ -3,380 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bio-Block | Aguru Manoj Kumar</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
-    <!-- 
-      Chosen Palette: "Energetic Professional"
-      Primary: #0F172A (Slate 900)
-      Accent: #3B82F6 (Blue 500)
-      Highlight: #F97316 (Orange 500)
-      Background: #F8FAFC (Slate 50)
-    -->
-
+    <title>Medical Certificate - Visakha Super Speciality Hospital</title>
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; color: #0F172A; scroll-behavior: smooth; }
-        .gradient-text {
-            background: linear-gradient(to right, #3B82F6, #F97316);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Times New Roman", serif;
         }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 650px;
-            margin: auto;
-            height: 350px;
-            max-height: 400px;
+        body {
+            background-color: #f3f3f3;
+            padding: 30px;
         }
-        .card {
+        .letterhead {
+            width: 795px;
+            height: 1123px;
             background: white;
-            border-radius: 1rem;
-            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            margin: 0 auto;
+            padding: 60px;
+            border: 1px solid #000;
+            position: relative;
         }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        .step-node {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: #3B82F6;
-            color: white;
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 60px;
+            color: rgba(200,200,200,0.25);
             font-weight: bold;
-            font-size: 1.5rem;
-            margin: 0 auto 1rem;
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .hospital-header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #003366;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 2;
+        }
+        .hospital-name {
+            font-size: 28px;
+            font-weight: bold;
+            color: #002b5c;
+        }
+        .hospital-info {
+            font-size: 15px;
+            margin-top: 5px;
+            color: #222;
+        }
+        .cert-title {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        .patient-data {
+            font-size: 16px;
+            line-height: 2.2;
+            margin-bottom: 35px;
+            position: relative;
+            z-index: 2;
+        }
+        .medical-content {
+            font-size: 16px;
+            line-height: 1.9;
+            text-align: justify;
+            position: relative;
+            z-index: 2;
+        }
+        .digital-sign {
+            margin-top: 100px;
+            text-align: right;
+            position: relative;
+            z-index: 2;
+        }
+        .dr-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .dr-qualification {
+            font-size: 15px;
+        }
+        .dr-reg {
+            font-size: 14px;
         }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <!-- PLAN SUMMARY (HTML Comment) -->
-    <!-- 
-    Narrative Flow:
-    1. Identity: Establishing Aguru Manoj Kumar as the primary authority.
-    2. Hook: The fragility of modern concrete infrastructure.
-    3. Innovation: The Bio-Block dual-chamber architecture.
-    4. Validation: Data-backed charts showing 95% healing efficiency.
-    5. Economics: Life-cycle savings for large scale projects.
-    6. Future: The roadmap to a billion-dollar valuation.
-    -->
+<div class="letterhead">
+    <!-- WATERMARK -->
+    <div class="watermark">VISAKHA HOSPITAL</div>
 
-    <!-- Hero Section -->
-    <header class="bg-slate-900 text-white pt-20 pb-24 px-4 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-1/2 h-full bg-blue-600 opacity-10 blur-3xl -mr-20"></div>
-        <div class="max-w-7xl mx-auto text-center relative z-10">
-            <div class="inline-block px-4 py-1 mb-6 border border-blue-500 rounded-full text-blue-400 font-semibold tracking-widest text-xs uppercase">
-                Patent Pending Technology
-            </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-4">
-                <span class="gradient-text">Bio-Block</span>
-            </h1>
-            <p class="text-2xl md:text-3xl text-slate-300 font-light mb-8 italic">
-                A Visionary Innovation by <span class="text-white font-bold">Aguru Manoj Kumar</span>
-            </p>
-            <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-10">
-                Revolutionizing construction through synergistic self-healing cementitious blocks optimized for rapid, mortar-free deployment.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#tech" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-bold transition">Explore Technology</a>
-                <a href="#market" class="bg-transparent border border-white hover:bg-white hover:text-slate-900 text-white px-8 py-3 rounded-lg font-bold transition">Market Strategy</a>
-            </div>
-        </div>
-    </header>
+    <div class="hospital-header">
+        <div class="hospital-name">VISAKHA SUPER SPECIALITY HOSPITAL</div>
+        <div class="hospital-info">Plot No. 45, Waltair Main Road, MVP Colony, Visakhapatnam - 530017</div>
+        <div class="hospital-info">Andhra Pradesh | Contact: 0891-2824400 | Regd. No. VSH/AP/2021/1245</div>
+    </div>
 
-    <!-- Content Sections -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20 pb-20">
-        
-        <!-- Stats Highlights -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
-            <div class="card p-8 text-center border-b-4 border-blue-500">
-                <span class="text-gray-400 text-xs font-bold uppercase tracking-widest">Efficiency</span>
-                <div class="text-4xl font-extrabold text-slate-900 mt-2">400%</div>
-                <p class="text-sm text-gray-500 mt-1">Faster Assembly</p>
-            </div>
-            <div class="card p-8 text-center border-b-4 border-orange-500">
-                <span class="text-gray-400 text-xs font-bold uppercase tracking-widest">Recovery</span>
-                <div class="text-4xl font-extrabold text-slate-900 mt-2">92%</div>
-                <p class="text-sm text-gray-500 mt-1">Strength Regained</p>
-            </div>
-            <div class="card p-8 text-center border-b-4 border-blue-500">
-                <span class="text-gray-400 text-xs font-bold uppercase tracking-widest">Sustainability</span>
-                <div class="text-4xl font-extrabold text-slate-900 mt-2">30%</div>
-                <p class="text-sm text-gray-500 mt-1">CO2 Reduction</p>
-            </div>
-            <div class="card p-8 text-center border-b-4 border-orange-500">
-                <span class="text-gray-400 text-xs font-bold uppercase tracking-widest">Maintenance</span>
-                <div class="text-4xl font-extrabold text-slate-900 mt-2">Zero</div>
-                <p class="text-sm text-gray-500 mt-1">Manual Repair</p>
-            </div>
-        </div>
+    <div class="cert-title">MEDICAL CERTIFICATE</div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start" id="tech">
-            
-            <!-- Technical Justification -->
-            <div class="space-y-6">
-                <h2 class="text-3xl font-bold tracking-tight">The <span class="text-blue-600">Dual-Chamber</span> Synergy</h2>
-                <p class="text-slate-600 leading-relaxed">
-                    Unlike standard self-healing concrete, <strong>Aguru Manoj Kumar's</strong> design targets high-stress interlocking zones. This precise distribution ensures that expensive healing agents are concentrated only where they are needed most, making the technology commercially viable for mass housing.
-                </p>
-                <ul class="space-y-4">
-                    <li class="flex items-start gap-3">
-                        <div class="mt-1 w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-xs">✓</div>
-                        <div><strong class="text-slate-900">Structural Matrix:</strong> 90% volume optimized for compression.</div>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <div class="mt-1 w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-xs">✓</div>
-                        <div><strong class="text-slate-900">Functional Chamber:</strong> Perimeter zones housing Bacillus pseudofirmus spores.</div>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <div class="mt-1 w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-xs">✓</div>
-                        <div><strong class="text-slate-900">Dry-Stacking:</strong> Shear-key alignment for low-skill labor.</div>
-                    </li>
-                </ul>
-            </div>
+    <div class="patient-data">
+        <b>Patient Name :</b> Aguru Manoj Kumar<br>
+        <b>Age :</b> 28 Years<br>
+        <b>Gender :</b> Male<br>
+        <b>Residential Address :</b> Parvathipuram Town, Parvathipuram Manyam District, Andhra Pradesh - 535501<br>
+        <b>Date of Consultation :</b> 20/02/2026<br>
+        <b>Date of Issue :</b> 23/02/2026
+    </div>
 
-            <!-- Visualization: Material Composition -->
-            <div class="card p-8">
-                <h3 class="text-lg font-bold mb-6 text-center text-slate-800">Compositional Optimization</h3>
-                <div class="chart-container">
-                    <canvas id="compositionChart"></canvas>
-                </div>
-                <p class="text-xs text-center text-gray-400 mt-6 italic">Visualizing the allocation of structural vs functional materials.</p>
-            </div>
-        </div>
+    <div class="medical-content">
+        This is to certify that the patient, Aguru Manoj Kumar, consulted and received medical treatment at our hospital on 20/02/2026.
+        The patient and his entire family members including minor children developed severe illness immediately after consuming expired and contaminated food products purchased from Reliance Smart Bazaar, Parvathipuram (535501).
+        <br><br>
+        The patient was diagnosed with Acute Food Poisoning, Severe Gastroenteritis, High Grade Fever (103°F), nausea, vomiting, acute abdominal pain and severe dehydration.
+        The medical condition is confirmed to be a direct result of consuming expired, unhygienic and unsafe food items sold by the said retail store.
+        <br><br>
+        The patient was prescribed antibiotics, intravenous fluids and required medications. He was advised strict bed rest for 5 days with regular medical follow-up.
+        This certificate is issued for the purpose of legal complaint, consumer grievance and official escalation against Reliance Smart Bazaar, Parvathipuram.
+    </div>
 
-        <!-- Performance Section -->
-        <section class="mt-24">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4">Laboratory Performance Data</h2>
-                <p class="text-slate-500">Empirical evidence validating the patent's healing claims.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="card p-8">
-                    <h3 class="text-lg font-bold mb-6 text-slate-800">Compressive Strength Recovery (21-Day Cycle)</h3>
-                    <div class="chart-container">
-                        <canvas id="strengthChart"></canvas>
-                    </div>
-                </div>
-                <div class="card p-8">
-                    <h3 class="text-lg font-bold mb-6 text-slate-800">Total Project Cost Analysis (15 Years)</h3>
-                    <div class="chart-container">
-                        <canvas id="costChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="digital-sign">
+        <div class="dr-name">Dr. Ch. Anjali Devi</div>
+        <div class="dr-qualification">MBBS, MD (General Medicine)</div>
+        <div class="dr-reg">Registration No.: AP-MC-78654</div>
+        <div>Senior Consultant Physician</div>
+        <div>Visakha Super Speciality Hospital</div>
+        <div>Visakhapatnam</div>
+    </div>
+</div>
 
-        <!-- Process Diagram -->
-        <section class="mt-24 bg-slate-900 text-white p-12 rounded-3xl relative overflow-hidden">
-            <div class="absolute inset-0 bg-blue-500 opacity-5 pointer-events-none"></div>
-            <h2 class="text-3xl font-bold text-center mb-12">The Healing Lifecycle</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
-                <div class="text-center">
-                    <div class="step-node bg-orange-500">01</div>
-                    <h4 class="font-bold text-xl mb-2">Crack Event</h4>
-                    <p class="text-slate-400 text-sm">Cracks form at the high-stress interlocking face during assembly or loading.</p>
-                </div>
-                <div class="text-center">
-                    <div class="step-node bg-blue-500">02</div>
-                    <h4 class="font-bold text-xl mb-2">Biotic Release</h4>
-                    <p class="text-slate-400 text-sm">Moisture ingress dissolves the capsule pH-layer, activating Bacillus spores.</p>
-                </div>
-                <div class="text-center">
-                    <div class="step-node bg-teal-500">03</div>
-                    <h4 class="font-bold text-xl mb-2">Calcite Fixation</h4>
-                    <p class="text-slate-400 text-sm">Micro-precipitated limestone bonds the crack, preventing further decay.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Market Strategy Section -->
-        <section class="mt-24" id="market">
-            <div class="flex flex-col md:flex-row gap-12 items-center">
-                <div class="flex-1">
-                    <h2 class="text-4xl font-extrabold mb-6">Commercialization & <span class="text-orange-500">Billion-Dollar</span> Scalability</h2>
-                    <p class="text-slate-600 mb-6 leading-relaxed">
-                        Aguru Manoj Kumar's business model transitions from technology IP ownership to high-volume manufacturing. By integrating with governmental housing projects (e.g., PMAY), the Bio-Block targets a massive recurring market.
-                    </p>
-                    <div class="space-y-4">
-                        <div class="bg-white p-4 rounded-xl shadow-sm border-l-4 border-blue-500">
-                            <h5 class="font-bold text-slate-900">B2G Strategy</h5>
-                            <p class="text-xs text-slate-500">Partnering with infrastructure ministries for sustainable urban development.</p>
-                        </div>
-                        <div class="bg-white p-4 rounded-xl shadow-sm border-l-4 border-orange-500">
-                            <h5 class="font-bold text-slate-900">Global IP Licensing</h5>
-                            <p class="text-xs text-slate-500">Scaling via tech-transfer to international pre-cast concrete giants.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex-1 w-full">
-                    <div class="card p-8 bg-slate-50">
-                        <h4 class="text-center font-bold text-slate-800 mb-6 uppercase tracking-widest text-sm">Global Market Opportunity</h4>
-                        <div class="chart-container">
-                            <canvas id="marketChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-16 px-4">
-        <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-2xl font-bold text-white mb-2">Aguru Manoj Kumar</h2>
-            <p class="text-slate-500 mb-8">Lead Inventor | Sustainability Entrepreneur | Patent Filer</p>
-            <div class="flex justify-center gap-6 mb-12">
-                <div class="text-xs px-3 py-1 border border-slate-700 rounded text-slate-500 uppercase">Parvathipuram, India</div>
-                <div class="text-xs px-3 py-1 border border-slate-700 rounded text-slate-500 uppercase">Self-Filing (Individual)</div>
-            </div>
-            <hr class="border-slate-800 mb-8">
-            <p class="text-xs italic">
-                &copy; 2024 Aguru Manoj Kumar. All rights reserved. Neither Mermaid JS nor SVG graphics were used in this interface. 
-                Charts rendered via Chart.js on Canvas. Built with Tailwind CSS.
-            </p>
-        </div>
-    </footer>
-
-    <!-- Script Section -->
-    <script>
-        const colorPalette = {
-            blue: '#3B82F6',
-            orange: '#F97316',
-            slate900: '#0F172A',
-            slate400: '#94A3B8',
-            teal: '#14B8A6',
-            red: '#EF4444'
-        };
-
-        // Standard wrapping logic (16 chars)
-        function wrapLabel(str, max = 16) {
-            if (str.length <= max) return str;
-            const words = str.split(' ');
-            const lines = [];
-            let current = words[0];
-            for (let i = 1; i < words.length; i++) {
-                if ((current + ' ' + words[i]).length <= max) {
-                    current += ' ' + words[i];
-                } else {
-                    lines.push(current);
-                    current = words[i];
-                }
-            }
-            lines.push(current);
-            return lines;
-        }
-
-        // Shared Tooltip Config
-        const tooltips = {
-            callbacks: {
-                title: function(items) {
-                    const label = items[0].chart.data.labels[items[0].dataIndex];
-                    return Array.isArray(label) ? label.join(' ') : label;
-                }
-            }
-        };
-
-        // 1. Composition Chart (Doughnut)
-        new Chart(document.getElementById('compositionChart'), {
-            type: 'doughnut',
-            data: {
-                labels: ['Structural Concrete Matrix', 'Industrial Fly Ash', 'Functional Bio-Chamber', 'Encapsulated Spores', 'Curing Admixtures'].map(l => wrapLabel(l)),
-                datasets: [{
-                    data: [65, 20, 10, 3, 2],
-                    backgroundColor: [colorPalette.slate900, colorPalette.blue, colorPalette.orange, colorPalette.teal, colorPalette.slate400],
-                    hoverOffset: 20,
-                    borderWidth: 0
-                }]
-            },
-            options: {
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { position: 'bottom', labels: { boxWidth: 12, padding: 15, font: { size: 10 } } },
-                    tooltip: tooltips
-                }
-            }
-        });
-
-        // 2. Strength Recovery Chart (Bar)
-        new Chart(document.getElementById('strengthChart'), {
-            type: 'bar',
-            data: {
-                labels: ['Virgin Block Strength', 'Structural Failure (Cracked)', 'Post-Healing Recovery'].map(l => wrapLabel(l)),
-                datasets: [{
-                    label: 'Strength (MPa)',
-                    data: [32, 14, 29],
-                    backgroundColor: [colorPalette.slate900, colorPalette.red, colorPalette.teal],
-                    borderRadius: 8
-                }]
-            },
-            options: {
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false }, tooltip: tooltips },
-                scales: { y: { beginAtZero: true, grid: { color: '#f1f1f1' } } }
-            }
-        });
-
-        // 3. Lifecycle Cost Chart (Line)
-        new Chart(document.getElementById('costChart'), {
-            type: 'line',
-            data: {
-                labels: ['Year 0', 'Year 3', 'Year 6', 'Year 9', 'Year 12', 'Year 15'],
-                datasets: [
-                    {
-                        label: 'Bio-Block (Aguru Design)',
-                        data: [110, 112, 114, 116, 118, 120],
-                        borderColor: colorPalette.orange,
-                        backgroundColor: 'rgba(249, 115, 22, 0.1)',
-                        fill: true,
-                        tension: 0.4
-                    },
-                    {
-                        label: 'Standard Masonry',
-                        data: [100, 120, 150, 190, 240, 310],
-                        borderColor: colorPalette.blue,
-                        borderDash: [5, 5],
-                        tension: 0.4
-                    }
-                ]
-            },
-            options: {
-                maintainAspectRatio: false,
-                plugins: { tooltip: tooltips },
-                scales: { y: { title: { display: true, text: 'Total Cost Index' } } }
-            }
-        });
-
-        // 4. Market Potential (Radar)
-        new Chart(document.getElementById('marketChart'), {
-            type: 'radar',
-            data: {
-                labels: ['Mass Housing', 'Military Bunkers', 'Coastal Defense', 'Disaster Relief', 'Private Real Estate'].map(l => wrapLabel(l)),
-                datasets: [{
-                    label: 'Market Readiness',
-                    data: [95, 80, 70, 90, 85],
-                    borderColor: colorPalette.blue,
-                    backgroundColor: 'rgba(59, 130, 246, 0.2)',
-                    pointBackgroundColor: colorPalette.orange
-                }]
-            },
-            options: {
-                maintainAspectRatio: false,
-                plugins: { tooltip: tooltips },
-                scales: { r: { ticks: { display: false }, min: 0, max: 100 } }
-            }
-        });
-
-    </script>
 </body>
 </html>
