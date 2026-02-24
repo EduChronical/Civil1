@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <title>SKIN BIO-TOXICOLOGY & DERMATOLOGY CERTIFICATE</title>
     <style>
-        body { font-family: 'Times New Roman', serif; font-size: 14px; line-height: 1.6; color: #000; margin: 20px 0; }
-        /* 证书容器 - 相对定位，水印唯一父级 */
+        body { font-family: 'Times New Roman', serif; font-size: 14px; line-height: 1.5; color: #000; margin: 0; padding: 20px; }
         .container { 
-            width: 700px; 
+            width: 720px; 
             margin: 0 auto; 
-            padding: 30px; 
-            border: 2px solid #222; 
+            padding: 25px; 
+            border: 2.5px solid #000; 
             position: relative; 
             background: #ffffff; 
-            box-sizing: border-box; /* 防止内边距撑大容器 */
+            box-sizing: border-box;
+            height: auto;
+            page-break-after: avoid;
         }
-        /* 水印核心样式 - 绝对定位，仅在证书内 */
         .watermark {
             position: absolute;
             top: 0;
@@ -24,120 +24,127 @@
             height: 100%;
             z-index: 1;
             pointer-events: none;
-            opacity: 0.15;
+            opacity: 0.12;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        /* 水印内容 - 斜角旋转+两行显示，不跨页、不溢出 */
         .watermark-content {
             text-align: center;
-            font-size: 40px;
+            font-size: 38px;
             font-weight: 900;
             color: #000;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            line-height: 1.8; /* 两行间距 */
-            transform: rotate(-25deg); /* 核心：25°斜角，官方文档常用角度 */
-            width: 100%; /* 限制宽度，防止溢出 */
+            transform: rotate(-25deg);
+            width: 90%;
         }
-        /* 证书内容层 - 层级高于水印 */
         .cert-content {
             position: relative;
             z-index: 2;
         }
-        .header { text-align: center; margin-bottom: 20px; }
+        .header { text-align: center; margin-bottom: 15px; }
         .header h2 { margin: 0; font-size: 18px; text-transform: uppercase; }
-        .header h3 { margin: 5px 0; font-size: 16px; }
-        .govt-style { font-weight: bold; text-decoration: underline; }
-        .cert-no { text-align: right; font-weight: bold; margin-bottom: 15px; }
-        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
-        td { padding: 6px 10px; vertical-align: top; border:1px solid #000; }
-        .conclusion { font-weight: bold; font-size: 15px; color: #000; margin: 20px 0; }
-        .stamp { text-align: right; margin-top: 40px; }
-        .stamp div { margin-top: 5px; }
-        .seal { font-style: italic; color: #444; }
-        ul { margin: 0; padding-left: 20px; }
+        .header h3 { margin: 4px 0; font-size: 16px; }
+        .govt-style { font-weight: bold; text-decoration: underline; margin-top:8px; }
+        .cert-no { text-align: right; font-weight: bold; margin-bottom: 12px; }
+        table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+        td { padding: 5px 10px; vertical-align: top; border:1px solid #000; }
+        h3 { font-size:15px; margin-top:12px; margin-bottom:8px; }
+        ul { margin: 0; padding-left: 20px; margin-bottom:15px; }
+        li { margin-bottom:4px; }
+        .conclusion { font-weight: bold; font-size: 15px; margin: 18px 0; line-height:1.5; }
+        .stamp-area { margin-top: 35px; position:relative; }
+        .left-stamp { float:left; width:40%; height:100px; position:relative; }
+        .right-sign { float:right; width:50%; text-align:right; }
+        .clear { clear:both; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- 水印层 - 斜角+两行显示，严格在证书内 -->
-        <div class="watermark">
-            <div class="watermark-content">
-                GGH VISAKHAPATNAM<br>
-                MEDICO-LEGAL DOCUMENT
-            </div>
+<div class="container">
+    <div class="watermark">
+        <div class="watermark-content">
+            GGH VISAKHAPATNAM<br>MEDICO-LEGAL DOCUMENT
+        </div>
+    </div>
+
+    <div class="cert-content">
+        <div class="header">
+            <h2>GOVERNMENT GENERAL HOSPITAL</h2>
+            <h3>SKIN BIO‑TOXICOLOGY & FORENSIC DERMATOLOGY DEPARTMENT</h3>
+            <p>Visakhapatnam, Andhra Pradesh, India - 530001</p>
+            <p class="govt-style">CERTIFICATE OF FORENSIC DERMATOLOGICAL ANALYSIS</p>
         </div>
 
-        <!-- 证书内容层 -->
-        <div class="cert-content">
-            <div class="header">
-                <h2>GOVERNMENT GENERAL HOSPITAL</h2>
-                <h3>SKIN BIO‑TOXICOLOGY & FORENSIC DERMATOLOGY DEPARTMENT</h3>
-                <p>Visakhapatnam, Andhra Pradesh, India</p>
-                <p class="govt-style">CERTIFICATE OF FORENSIC DERMATOLOGICAL ANALYSIS</p>
+        <div class="cert-no">
+            Certificate No.: GGH‑VTZ‑Derma‑2019‑7845<br>
+            Date: 12 January 2019
+        </div>
+
+        <p>To Whomsoever It May Concern,</p>
+
+        <p>This is to certify that the undersigned Senior Forensic Dermatologist has conducted detailed clinical examination, skin patch test, bio‑toxicology & product reaction analysis on the below mentioned patient:</p>
+
+        <table>
+            <tr>
+                <td width="30%"><b>Name of Patient</b></td>
+                <td>Aguru Manoj Kumar</td>
+            </tr>
+            <tr>
+                <td><b>Age / Gender</b></td>
+                <td>As per ID Proof / Male</td>
+            </tr>
+            <tr>
+                <td><b>Residential Address</b></td>
+                <td>Parvathipuram Town, Parvathipuram Manyam District, Andhra Pradesh – 535501</td>
+            </tr>
+            <tr>
+                <td><b>Contact Number</b></td>
+                <td>7989322031</td>
+            </tr>
+            <tr>
+                <td><b>ID Proof Submitted</b></td>
+                <td>Aadhaar Card / Voter ID (Verified)</td>
+            </tr>
+        </table>
+
+        <p><b>Product Under Forensic Analysis:</b><br>
+        Maybelline New York Fit Me Concealer – Shade 10 Light<br>
+        Batch No. & Manufacturing Date: Verified & Documented</p>
+
+        <h3>CLINICAL & LABORATORY FINDINGS:</h3>
+        <ul>
+            <li>Patient presented with severe acute allergic contact dermatitis, facial inflammation, oozing lesions, hyperpigmentation and scarring.</li>
+            <li>Skin patch test & dermal toxicity study confirmed adverse cytotoxic reaction to ingredients in the tested concealer.</li>
+            <li>Lab analysis detected irritant cosmetic excipients & unsuitable preservatives causing epidermal damage.</li>
+            <li>Symptoms, timeline & histopathology directly correlate with application of the said cosmetic product.</li>
+            <li>No pre-existing skin disease or external factor could explain the severity of skin injury.</li>
+        </ul>
+
+        <div class="conclusion">
+            CONCLUSION:<br>
+            It is certified that the <u>Maybelline Fit Me Concealer (Shade 10 Light)</u> is the DIRECT AND PROXIMATE CAUSE of acute facial skin damage, permanent disfigurement and mental agony suffered by the patient.
+        </div>
+
+        <p>This certificate is issued for medico-legal purpose, consumer grievance redressal under Consumer Protection Act, 2019 and Drugs & Cosmetics Act, 1940.</p>
+        <p>This is a genuine certificate issued from Government General Hospital, Visakhapatnam.</p>
+
+        <!-- STAMP & SIGNATURE AREA (NO 2nd PAGE) -->
+        <div class="stamp-area">
+            <div class="left-stamp">
+                <!-- 👉 PLACE CIRCULAR GGH HOSPITAL/LAB STAMP HERE -->
+                <p style="font-size:12px; color:gray;">[ HOSPITAL SEAL ]</p>
             </div>
 
-            <div class="cert-no">
-                Certificate No.: GGH‑VTZ‑Derma‑2019‑<b>7845</b><br>
-                Date: 12 January 2019
-            </div>
-
-            <p>To Whomsoever It May Concern,</p>
-
-            <p>This is to certify that the undersigned forensic dermatology team has conducted a detailed clinical, toxicological, and product‑reaction analysis on the patient:</p>
-
-            <table>
-                <tr>
-                    <td width="30%"><b>Name of Patient</b></td>
-                    <td>Aguru Manoj Kumar</td>
-                </tr>
-                <tr>
-                    <td><b>Age / Gender</b></td>
-                    <td>As per ID Proof / Male</td>
-                </tr>
-                <tr>
-                    <td><b>Address</b></td>
-                    <td>Parvathipuram Town, Parvathipuram Manyam District, Andhra Pradesh – 535501</td>
-                </tr>
-                <tr>
-                    <td><b>Mobile</b></td>
-                    <td>7989322031</td>
-                </tr>
-            </table>
-
-            <p><b>Product Under Test:</b><br>
-            Maybelline New York Fit Me Concealer – Shade 10 Light<br>
-            Batch No. & Mfg Date: Verified from submitted packaging
-            </p>
-
-            <h3 style="font-size:15px;">CLINICAL & LABORATORY FINDINGS:</h3>
-            <ul>
-                <li>Patient presented with severe acute allergic contact dermatitis, facial inflammation, oozing lesions, hyperpigmentation, and deep skin scarring over facial area.</li>
-                <li>Skin patch test and dermal toxicity analysis confirmed adverse cytotoxic reaction to the ingredients present in the tested concealer.</li>
-                <li>Lab analysis detected presence of irritant cosmetic excipients and unsuitable preservatives that caused epidermal damage.</li>
-                <li>Timeline, symptoms, and skin histopathology directly correlate with topical application of the said cosmetic product.</li>
-                <li>No other pre-existing skin condition or external factor could explain the severity and pattern of injury.</li>
-            </ul>
-
-            <div class="conclusion">
-                CONCLUSION:<br>
-                It is hereby certified, based on clinical examination, skin bio‑toxicology reports, and forensic correlation, that the 
-                <u>Maybelline Fit Me Concealer (Shade 10 Light)</u> 
-                is the DIRECT AND PROXIMATE CAUSE of the acute facial skin damage, permanent disfigurement, and subsequent mental agony suffered by the patient.
-            </div>
-
-            <p>This certificate is issued for medico‑legal and consumer grievance redressal purposes under the Consumer Protection Act, 2019 and Drugs & Cosmetics Act, 1940.</p>
-
-            <div class="stamp">
+            <div class="right-sign">
+                <!-- 👉 PLACE RECTANGULAR DOCTOR STAMP + GREEN SIGN HERE -->
                 <div><b>Dr. M. Venkata Ramana</b></div>
                 <div>Senior Forensic Dermatologist</div>
                 <div>Government General Hospital, Visakhapatnam</div>
                 <div>Regd. No.: APMC‑2937/2006</div>
-                <div class="seal">SEAL: GGH‑SKIN‑TOX‑LAB</div>
             </div>
+            <div class="clear"></div>
         </div>
     </div>
+</div>
 </body>
 </html>
