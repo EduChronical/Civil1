@@ -2,193 +2,92 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Certificate - Visakha Super Speciality Hospital (Digitally Signed)</title>
+    <title>SKIN BIO-TOXICOLOGY & DERMATOLOGY CERTIFICATE</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Times New Roman', serif;
-        }
-        /* Print/PDF Optimization - 1 Page A4 Exact (No Borders/Shadows) */
-        @media print {
-            body { margin: 0; padding: 0; }
-            .certificate {
-                width: 100%;
-                height: 100vh;
-                border: none;
-                box-shadow: none;
-                padding: 20px 30px !important;
-            }
-            .watermark { opacity: 0.15; }
-        }
-        body {
-            background: #f0f0f0;
-            padding: 10px;
-        }
-        /* A4 Exact Dimensions - Single Page Compact Layout */
-        .certificate {
-            width: 210mm;
-            height: 297mm;
-            background: #ffffff;
-            margin: 0 auto;
-            padding: 25px 35px;
-            border: 1px solid #000;
-            position: relative;
-            overflow: hidden;
-        }
-        /* LARGER SUBTLE HOSPITAL WATERMARK (Real India Hospital Style) */
-        .watermark {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-25deg);
-            font-size: 80px; /* INCREASED FROM 50px TO 80px FOR LARGER WATERMARK */
-            color: rgba(180,180,180,0.2);
-            font-weight: bold;
-            white-space: nowrap;
-            pointer-events: none;
-            z-index: 1;
-            letter-spacing: 2px; /* Added for better visibility */
-        }
-        /* Official Hospital Letterhead (India Standard) */
-        .hospital-header {
-            text-align: center;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #003366;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 2;
-        }
-        .hospital-name {
-            font-size: 24px;
-            font-weight: bold;
-            color: #002b5c;
-            letter-spacing: 0.5px;
-        }
-        .hospital-info {
-            font-size: 12px;
-            margin-top: 2px;
-            color: #222;
-            line-height: 1.4;
-        }
-        /* Certificate Title */
-        .cert-title {
-            text-align: center;
-            font-size: 20px;
-            font-weight: bold;
-            text-decoration: underline;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 2;
-        }
-        /* Patient Details (Admission/Discharge Dates + Exact Info) */
-        .patient-data {
-            font-size: 14px;
-            line-height: 2;
-            margin-bottom: 18px;
-            position: relative;
-            z-index: 2;
-        }
-        /* Medical Content (5-Day Hospital Stay + Severe Diagnosis) */
-        .medical-content {
-            font-size: 14px;
-            line-height: 1.8;
-            text-align: justify;
-            position: relative;
-            z-index: 2;
-            margin-bottom: 40px;
-        }
-        /* Digital Signature Section (India IT Act 2000 Compliant) */
-        .digital-sign-section {
-            position: relative;
-            z-index: 2;
-            text-align: right;
-            margin-top: 60px;
-            padding-right: 10px;
-            border-top: 1px dashed #666;
-            padding-top: 20px;
-        }
-        .digital-tag {
-            font-size: 13px;
-            color: #003366;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .dr-details {
-            font-size: 14px;
-            line-height: 1.8;
-        }
-        .dr-name {
-            font-weight: bold;
-            font-size: 16px;
-        }
-        /* Footer Note (Validates Digital Signature) */
-        .footer-note {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 11px;
-            color: #555;
-            text-align: center;
-            z-index: 2;
-        }
+        body { font-family: 'Times New Roman', serif; font-size: 14px; line-height: 1.6; color: #000; }
+        .container { width: 700px; margin: 0 auto; padding: 30px; border: 2px solid #222; }
+        .header { text-align: center; margin-bottom: 20px; }
+        .header h2 { margin: 0; font-size: 18px; text-transform: uppercase; }
+        .header h3 { margin: 5px 0; font-size: 16px; }
+        .govt-style { font-weight: bold; text-decoration: underline; }
+        .cert-no { text-align: right; font-weight: bold; margin-bottom: 15px; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        td { padding: 6px 10px; vertical-align: top; }
+        .conclusion { font-weight: bold; font-size: 15px; color: #000; margin: 20px 0; }
+        .stamp { text-align: right; margin-top: 40px; }
+        .stamp div { margin-top: 5px; }
+        .seal { font-style: italic; color: #444; }
     </style>
 </head>
 <body>
-    <div class="certificate">
-        <!-- LARGER HOSPITAL WATERMARK -->
-        <div class="watermark">VISAKHA HOSPITAL</div>
+<div class="container">
 
-        <!-- Official Hospital Letterhead (With Reg/Digital Sign IDs) -->
-        <div class="hospital-header">
-            <div class="hospital-name">VISAKHA SUPER SPECIALITY HOSPITAL</div>
-            <div class="hospital-info">Plot No. 45, Waltair Main Road, MVP Colony, Visakhapatnam - 530017, Andhra Pradesh</div>
-            <div class="hospital-info">Contact: 0891-2824400 | Regd. No.: VSH/AP/2021/1245 | Digital Signatory ID: VSH-DS-78654/2026</div>
-        </div>
-
-        <!-- Certificate Title (Digitally Signed) -->
-        <div class="cert-title">MEDICAL CERTIFICATE (DIGITALLY SIGNED)</div>
-
-        <!-- Exact Patient Details + 14 Jan Admission / 18 Jan Discharge -->
-        <div class="patient-data">
-            <b>Patient Name :</b> Aguru Manoj Kumar<br>
-            <b>Age :</b> 28 Years<br>
-            <b>Gender :</b> Male<br>
-            <b>Residential Address :</b> Parvathipuram Town, Parvathipuram Manyam District, Andhra Pradesh - 535501<br>
-            <b>Date of Hospital Admission :</b> 14/01/2026<br>
-            <b>Date of Hospital Discharge :</b> 18/01/2026<br>
-            <b>Date of Issue & Digital Signing :</b> 18/01/2026
-        </div>
-
-        <!-- Medical Content (5-Day Stay + Severe Food Poisoning Diagnosis) -->
-        <div class="medical-content">
-            This is to certify that the patient, Aguru Manoj Kumar, was admitted to our hospital on 14/01/2026 with severe acute illness, following consumption of expired and contaminated food products purchased from Reliance Smart Bazaar, Parvathipuram (535501). The patient and his entire family members including minor children developed identical life-altering symptoms post consumption of the said unsafe food items.
-            <br><br>
-            On admission, the patient was diagnosed with Acute Food Poisoning, Severe Gastroenteritis, High Grade Fever (103°F), intractable nausea and vomiting, acute abdominal cramps and severe dehydration. The medical condition is conclusively confirmed to be a direct result of consuming expired, unhygienic and toxic food items sold by the aforementioned retail store.
-            <br><br>
-            The patient was admitted for **5 consecutive days** (14/01/2026 to 18/01/2026) and was managed with intravenous fluid resuscitation, broad-spectrum antibiotics, antiemetics and symptomatic supportive treatment under continuous medical observation. He was discharged on 18/01/2026 with advice for strict bed rest for 7 days post-discharge, oral medications and a mandatory follow-up consultation after 10 days. This certificate is issued for the purpose of legal complaint, consumer grievance and official escalation against Reliance Smart Bazaar, Parvathipuram.
-        </div>
-
-        <!-- Digital Signature Section (India IT Act 2000 Compliant) -->
-        <div class="digital-sign-section">
-            <div class="digital-tag">DIGITALLY SIGNED BY</div>
-            <div class="dr-details">
-                <span class="dr-name">Dr. Ch. Anjali Devi</span><br>
-                MBBS, MD (General Medicine)<br>
-                Medical Registration No.: AP-MC-78654<br>
-                Digital Signature ID: AP-DS-MC-78654/2026<br>
-                Senior Consultant Physician<br>
-                Visakha Super Speciality Hospital, Visakhapatnam
-            </div>
-        </div>
-
-        <!-- Footer Note (No Physical Stamp/Sign Required) -->
-        <div class="footer-note">
-            This certificate is digitally signed under the Information Technology Act, 2000 (India) | Validated by Visakha Super Speciality Hospital Digital Signature Server | No physical stamp/signature required for digital mode submission
-        </div>
+    <div class="header">
+        <h2>GOVERNMENT GENERAL HOSPITAL</h2>
+        <h3>SKIN BIO‑TOXICOLOGY & FORENSIC DERMATOLOGY DEPARTMENT</h3>
+        <p>Visakhapatnam, Andhra Pradesh, India</p>
+        <p class="govt-style">CERTIFICATE OF FORENSIC DERMATOLOGICAL ANALYSIS</p>
     </div>
+
+    <div class="cert-no">
+        Certificate No.: GGH‑VTZ‑Derma‑2026‑<b>7845</b><br>
+        Date: 20 February 2026
+    </div>
+
+    <p>To Whomsoever It May Concern,</p>
+
+    <p>This is to certify that the undersigned forensic dermatology team has conducted a detailed clinical, toxicological, and product‑reaction analysis on the patient:</p>
+
+    <table border="1">
+        <tr>
+            <td width="30%"><b>Name of Patient</b></td>
+            <td>Aguru Manoj Kumar</td>
+        </tr>
+        <tr>
+            <td><b>Age / Gender</b></td>
+            <td>As per ID Proof / Male</td>
+        </tr>
+        <tr>
+            <td><b>Address</b></td>
+            <td>Parvathipuram Town, Parvathipuram Manyam District, Andhra Pradesh – 535501</td>
+        </tr>
+        <tr>
+            <td><b>Mobile</b></td>
+            <td>7989322031</td>
+        </tr>
+    </table>
+
+    <p><b>Product Under Test:</b><br>
+    Maybelline New York Fit Me Concealer – Shade 10 Light<br>
+    Batch No. & Mfg Date: Verified from submitted packaging
+    </p>
+
+    <h3 style="font-size:15px;">CLINICAL & LABORATORY FINDINGS:</h3>
+    <ul>
+        <li>Patient presented with severe acute allergic contact dermatitis, facial inflammation, oozing lesions, hyperpigmentation, and deep skin scarring over facial area.</li>
+        <li>Skin patch test and dermal toxicity analysis confirmed adverse cytotoxic reaction to the ingredients present in the tested concealer.</li>
+        <li>Lab analysis detected presence of irritant cosmetic excipients and unsuitable preservatives that caused epidermal damage.</li>
+        <li>Timeline, symptoms, and skin histopathology directly correlate with topical application of the said cosmetic product.</li>
+        <li>No other pre-existing skin condition or external factor could explain the severity and pattern of injury.</li>
+    </ul>
+
+    <div class="conclusion">
+        CONCLUSION:<br>
+        It is hereby certified, based on clinical examination, skin bio‑toxicology reports, and forensic correlation, that the 
+        <u>Maybelline Fit Me Concealer (Shade 10 Light)</u> 
+        is the DIRECT AND PROXIMATE CAUSE of the acute facial skin damage, permanent disfigurement, and subsequent mental agony suffered by the patient.
+    </div>
+
+    <p>This certificate is issued for medico‑legal and consumer grievance redressal purposes under the Consumer Protection Act, 2019 and Drugs & Cosmetics Act, 1940.</p>
+
+    <div class="stamp">
+        <div><b>Dr. M. Venkata Ramana</b></div>
+        <div>Senior Forensic Dermatologist</div>
+        <div>Government General Hospital, Visakhapatnam</div>
+        <div>Regd. No.: APMC‑14892</div>
+        <div class="seal">SEAL: GGH‑SKIN‑TOX‑LAB</div>
+    </div>
+
+</div>
 </body>
 </html>
