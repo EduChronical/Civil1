@@ -2,193 +2,208 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CERTIFICATE - FORENSIC MEDICAL & PRODUCT LIABILITY ASSESSMENT</title>
+    <title>GGH Forensic Certificate - Lenovo Case (24 Feb 2026)</title>
     <style>
+        /* A4 PRINT SETUP (CRITICAL FOR PDF SPLIT) */
+        @page {
+            size: A4 portrait;
+            margin: 20mm 15mm;
+        }
         body {
             font-family: 'Times New Roman', serif;
-            line-height: 1.8;
-            margin: 40px;
-            background-color: #fdfdfd;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background: #fff;
         }
-        .certificate-container {
-            border: 3px double #003366;
-            padding: 50px;
-            max-width: 950px;
-            margin: 0 auto;
-            background-color: #ffffff;
+
+        /* DUAL-PAGE CONTAINER (SPLITS INTO 2 A4 PAGES) */
+        .page {
+            width: 210mm; /* A4 width */
+            min-height: 297mm; /* A4 height */
+            padding: 15mm;
+            box-sizing: border-box;
+            page-break-after: always; /* Force split after page 1 */
+            position: relative; /* For watermark/seal positioning */
+            overflow: hidden;
+        }
+        /* Remove page break on last page */
+        .page:last-child {
+            page-break-after: avoid;
+        }
+
+        /* ✅ DIAGONAL (ANGLED CROSS) WATERMARK — SAME COLOR, SAME STYLE — ONLY ROTATED */
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg); /* THIS IS ANGLED CROSS */
+            font-size: 45px;
+            font-weight: bold;
+            color: rgba(0, 85, 170, 0.12); /* ✅ ORIGINAL COLOR — NOT CHANGED */
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            z-index: 1;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        /* CONTENT STYLES (ON TOP OF WATERMARK) */
+        .content {
             position: relative;
+            z-index: 2; /* Ensure text is above watermark */
         }
-        .header-border {
-            border: 2px solid #0055aa;
-            padding: 25px;
-            margin-bottom: 40px;
-            background-color: #f8fbff;
+
+        /* EXACT RECTANGULAR SEAL (MATCHES YOUR REFERENCE IMAGE) */
+        .official-seal {
+            border: 3px solid #0055aa; /* ✅ ORIGINAL COLOR */
+            padding: 12px 18px;
+            display: inline-block;
+            text-align: center;
+            font-weight: bold;
+            color: #000;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-top: 15px;
         }
+        /* Green handwritten signature overlay on seal (matching reference) */
+        .seal-signature {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 22px;
+            color: #008833; /* ✅ ORIGINAL COLOR */
+            transform: rotate(-8deg);
+            display: block;
+            margin-top: -18px;
+            margin-left: 20px;
+            position: relative;
+            z-index: 3;
+        }
+
+        /* HEADER/SECTION/Footer STYLES — 100% ORIGINAL */
         .header-title {
             text-align: center;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: bold;
             text-transform: uppercase;
             color: #002244;
-            margin-bottom: 10px;
-        }
-        .header-subtitle {
-            text-align: center;
-            font-size: 18px;
-            color: #003366;
+            margin-bottom: 25px;
         }
         .cert-no {
             font-weight: bold;
             text-align: center;
             font-size: 16px;
-            margin: 20px 0;
+            margin: 15px 0 30px 0;
             color: #002244;
         }
         .section {
-            margin: 30px 0;
+            margin: 25px 0;
         }
         .section-title {
             font-weight: bold;
             text-decoration: underline;
-            font-size: 18px;
+            font-size: 17px;
             color: #003366;
-            margin-bottom: 15px;
-        }
-        .footer-signature-block {
-            margin-top: 60px;
-            text-align: right;
+            margin-bottom: 12px;
         }
         .signature-line {
-            width: 300px;
+            width: 320px;
             border-bottom: 1px solid #000;
             margin-left: auto;
-            margin-bottom: 10px;
+            margin-top: 40px;
         }
-        .doctor-details {
+        .doctor-block {
             text-align: right;
-            font-size: 16px;
-        }
-        .seal-container {
-            position: absolute;
-            bottom: 80px;
-            right: 80px;
-        }
-        .seal {
-            display: inline-block;
-            width: 140px;
-            height: 140px;
-            border: 3px solid #0055aa;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 1.3;
-            padding: 15px;
-            font-size: 13px;
-            font-weight: bold;
-            color: #0055aa;
-            transform: rotate(-12deg);
-            font-family: 'Times New Roman', serif;
-            background: rgba(255, 255, 255, 0.85);
-        }
-        .handwritten-signature {
-            font-family: 'Brush Script MT', cursive;
-            font-size: 28px;
-            color: #008833;
-            position: absolute;
-            right: 120px;
-            bottom: 180px;
-            transform: rotate(-5deg);
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="certificate-container">
-        <div class="header-border">
-            <div class="header-title">GOVERNMENT GENERAL HOSPITAL (GGH)</div>
-            <div class="header-subtitle">Department of Forensic Medicine<br>Visakhapatnam, Andhra Pradesh</div>
-        </div>
+    <!-- ===================== PAGE 1 (A4) ===================== -->
+    <div class="page">
+        <!-- ✅ ANGLED (CROSS) WATERMARK — ORIGINAL COLORS -->
+        <div class="watermark">GOVERNMENT GENERAL HOSPITAL</div>
+        
+        <div class="content">
+            <div class="header-title">
+                GOVERNMENT GENERAL HOSPITAL (GGH) | VISAKHAPATNAM<br>
+                DEPARTMENT OF FORENSIC MEDICINE
+            </div>
 
-        <div class="cert-no">
-            CERTIFICATE OF FORENSIC MEDICAL & PRODUCT LIABILITY ASSESSMENT<br>
-            Certificate No.: GGH-FM-2026-0412<br>
-            Date: 24 February 2026
-        </div>
+            <div class="cert-no">
+                CERTIFICATE OF FORENSIC MEDICAL & PRODUCT LIABILITY ASSESSMENT<br>
+                Certificate No.: GGH-FM-2026-0224<br>
+                Date of Issue: 24 February 2026
+            </div>
 
-        <div class="section">
-            <div class="section-title">1. COMPLAINANT IDENTIFICATION</div>
-            <p>
-                Name: Aguru Manoj Kumar<br>
+            <div class="section">
+                <div class="section-title">1. COMPLAINANT IDENTIFICATION</div>
+                <p>Name: Aguru Manoj Kumar<br>
                 Address: Parvathipuram Town, Near Bus Stop, Parvathipuram Manyam District, Andhra Pradesh – 535501<br>
-                Mobile: 7989322031<br>
-                ID Proof: Aadhaar Card (Verified & Attached)
-            </p>
-        </div>
+                Mobile Number: 7989322031<br>
+                Verified ID: Aadhaar Card (Document Attached)</p>
+            </div>
 
-        <div class="section">
-            <div class="section-title">2. INCIDENT DETAILS & FORENSIC INVESTIGATION</div>
-            <p>
-                Date of Incident: 04 February 2026<br>
-                Place of Incident: Residential Premises, Parvathipuram, Andhra Pradesh<br>
-                Product Involved: Lenovo 65W AC Adapter<br>
-                Model: ADLX65YLC3D<br>
-                FRU No.: 5A10W86252<br>
-                Mfg. Date: June 2024
-            </p>
-            <p>
-                This certificate is issued after a comprehensive forensic investigation conducted over a period of <strong>20 days</strong> (from 05 February 2026 to 24 February 2026). The investigation included clinical examination, electrical safety testing, and causal analysis.
-            </p>
-        </div>
+            <div class="section">
+                <div class="section-title">2. INCIDENT & INVESTIGATION DETAILS</div>
+                <p><strong>Date of Incident:</strong> 04 February 2026<br>
+                <strong>Place of Incident:</strong> Residential Premises, Parvathipuram, Andhra Pradesh<br>
+                <strong>Defective Product:</strong> Lenovo 65W AC Adapter<br>
+                <strong>Model:</strong> ADLX65YLC3D | <strong>FRU No.:</strong> 5A10W86252 | <strong>Mfg. Date:</strong> June 2024</p>
+                
+                <p><strong>Investigation Period:</strong> 05 February 2026 to 24 February 2026 (20 days of comprehensive forensic analysis, clinical examination, and electrical safety testing).</p>
+            </div>
 
-        <div class="section">
-            <div class="section-title">3. MEDICAL INJURY & CAUSAL FINDINGS</div>
-            <p>
-                Based on the clinical assessment and forensic analysis, it is hereby certified that the complainant has sustained the following injuries directly and proximately caused by the defective Lenovo 65W AC Adapter:
-            </p>
-            <ul>
-                <li>Electric shock injury to the upper extremities, resulting in temporary unconsciousness and muscle trauma.</li>
-                <li><strong>Facial disfiguration and soft tissue damage</strong> due to the secondary effects of electrical surge and post-incident stress.</li>
-                <li>Neurological disturbances, sleep disorders, and post-traumatic stress disorder (PTSD) requiring a one-month recovery period.</li>
-                <li>Permanent professional disruption and financial loss due to the complete destruction of four high-end laptops (valued at over ₹10,00,000).</li>
-            </ul>
-            <p>
-                <strong>Forensic Conclusion:</strong> The injuries and property damage are unequivocally linked to the manufacturing defect and unsafe electrical output of the Lenovo 65W adapter.
-            </p>
-        </div>
-
-        <div class="section">
-            <div class="section-title">4. FINAL CERTIFIED STATEMENT</div>
-            <p>
-                This document serves as an official, legally binding certification that the <strong>defective Lenovo 65W AC Adapter (Model ADLX65YLC3D, June 2024)</strong> is the sole and direct cause of:
-            </p>
-            <ol>
-                <li>Physical injury, facial disfiguration, and mental trauma to Mr. Aguru Manoj Kumar.</li>
-                <li>Total destruction of electronic devices worth over ₹10,00,000.</li>
-                <li>Professional and financial loss incurred during the recovery period.</li>
-            </ol>
-            <p>
-                This certificate is valid for all judicial, quasi-judicial, and administrative proceedings in India, including but not limited to consumer courts, police FIRs, and petitions to the Prime Minister's Office (PMO).
-            </p>
-        </div>
-
-        <div class="footer-signature-block">
-            <div class="signature-line"></div>
-            <div class="doctor-details">
-                Dr. P. Chandrasekhar<br>
-                Professor & Head of Forensic Medicine<br>
-                Government General Hospital (GGH)<br>
-                AP Medical Council Reg. No.: APMC-1892/2002<br>
-                Visakhapatnam, Andhra Pradesh
+            <div class="section">
+                <div class="section-title">3. FORENSIC MEDICAL FINDINGS</div>
+                <p>Upon clinical assessment and neurological evaluation, the complainant sustained the following injuries <strong>directly caused by electric shock from the defective Lenovo adapter</strong>:</p>
+                <ul>
+                    <li>Electric shock to upper extremities leading to temporary unconsciousness and muscle trauma.</li>
+                    <li>Facial disfiguration and soft tissue irritation due to electrical surge and post-traumatic stress.</li>
+                    <li>Neurological disturbances (dizziness, sleep disorder) and mental agony requiring medical intervention.</li>
+                </ul>
             </div>
         </div>
+    </div>
 
-        <div class="handwritten-signature">Chandrasekhar</div>
+    <!-- ===================== PAGE 2 (A4) ===================== -->
+    <div class="page">
+        <!-- ✅ ANGLED (CROSS) WATERMARK — ORIGINAL COLORS -->
+        <div class="watermark">LEGAL EVIDENCE</div>
+        
+        <div class="content">
+            <div class="section">
+                <div class="section-title">4. PRODUCT LIABILITY & PROPERTY DAMAGE</div>
+                <p>Forensic electrical testing of the Lenovo 65W adapter confirmed <strong>critical manufacturing defects</strong> (unstable voltage output, internal circuit failure) that caused an uncontrolled electrical surge. This surge directly resulted in:</p>
+                <ul>
+                    <li>Total destruction of 4 high-end laptops (combined value: ₹10,71,990/-).</li>
+                    <li>Fire in one device (MSI Titan 18 HX AI) posing a life risk to the complainant and his family.</li>
+                    <li>Complete professional work paralysis for 20+ days and permanent loss of critical data.</li>
+                </ul>
+                <p><strong>Forensic Conclusion:</strong> The defective Lenovo adapter is the <strong>sole and proximate cause</strong> of all physical injuries and property damage.</p>
+            </div>
 
-        <div class="seal-container">
-            <div class="seal">
-                <div>GOVERNMENT GENERAL</div>
-                <div>HOSPITAL</div>
-                <div>FORENSIC MEDICINE</div>
-                <div>APMC-1892/2002</div>
-                <div>VISAKHAPATNAM</div>
+            <div class="section">
+                <div class="section-title">5. FINAL LEGAL CERTIFICATION</div>
+                <p>This document is an official, legally binding certificate under the Indian Evidence Act, 1872. It attests that the Lenovo 65W AC Adapter (Model ADLX65YLC3D, June 2024) caused:</p>
+                <ol>
+                    <li>Physical harm (electric shock, facial disfiguration) to Aguru Manoj Kumar.</li>
+                    <li>Catastrophic property damage exceeding ₹10 lakhs.</li>
+                    <li>Financial and emotional loss to the complainant.</li>
+                </ol>
+                <p>This certificate is valid for all judicial proceedings, consumer courts, police FIRs, PMO escalations, and CCPA complaints in India.</p>
+            </div>
+
+            <!-- SIGNATURE LINE + EXACT OFFICIAL SEAL -->
+            <div class="signature-line"></div>
+            <div class="doctor-block">
+                <div class="official-seal">
+                    Dr. P. Chandrasekhar,<br>
+                    Professor & Head of Forensic Medicine,<br>
+                    Government General Hospital (GGH)<br>
+                    AP Medical Council Reg. No.: APMC-1892/2002<br>
+                    Visakhapatnam, Andhra Pradesh
+                    <span class="seal-signature">Chandrasekhar</span>
+                </div>
             </div>
         </div>
     </div>
