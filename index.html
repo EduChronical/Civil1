@@ -1,55 +1,144 @@
-# 复制到记事本保存为 .html 用浏览器打开就是完整网页
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Maybelline Cream Allegedly Causes Permanent Facial Disfigurement; Consumer Alleges Life Ruined, Firm Seeks More Details | India Today</title>
-<style>
-body{font-family:Arial,sans-serif;background:#f5f5f5;margin:0;padding:20px;}
-.container{max-width:1200px;margin:0 auto;background:white;padding:30px;box-shadow:0 0 10px rgba(0,0,0,0.1);}
-.header{border-bottom:3px solid #c00;padding-bottom:10px;margin-bottom:20px;}
-.logo{font-size:32px;font-weight:900;color:#c00;}
-.tagline{font-size:14px;color:#666;}
-.breadcrumb{font-size:13px;color:#666;margin-bottom:15px;}
-.headline{font-size:28px;font-weight:700;line-height:1.3;margin:0 0 15px;}
-.subhead{font-size:18px;color:#333;margin:0 0 20px;font-weight:400;}
-.byline{font-size:14px;color:#666;margin-bottom:10px;}
-.dateline{font-size:14px;color:#666;margin-bottom:25px;border-bottom:1px solid #eee;padding-bottom:15px;}
-.article-body{font-size:17px;line-height:1.7;color:#222;}
-.article-body p{margin-bottom:18px;}
-.pullquote{border-left:4px solid #c00;padding-left:15px;margin:25px 0;font-size:18px;font-weight:500;color:#b00;}
-.alert{background:#fff0f0;border:1px solid #ffcccc;padding:15px;margin:20px 0;}
-</style>
+    <meta charset="UTF-8">
+    <style>
+        @page {
+            size: 12.387in 9.25in;
+            margin: 0;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #fff;
+            -webkit-print-color-adjust: exact;
+        }
+        .canvas {
+            width: 12.387in;
+            height: 9.25in;
+            display: flex;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Layout Sections */
+        .back-cover, .front-cover {
+            width: 6in;
+            height: 9in;
+            margin-top: 0.125in; /* Bleed top */
+            position: relative;
+            padding: 0.5in;
+            box-sizing: border-box;
+        }
+        .back-cover { margin-left: 0.125in; } /* Bleed left */
+        
+        .spine {
+            width: 0.137in;
+            height: 9.25in;
+            background-color: #1a1a1a;
+            border-left: 1px solid #333;
+            border-right: 1px solid #333;
+        }
+
+        /* Front Cover Styles */
+        .front-cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+        }
+        .main-title {
+            font-size: 52pt;
+            font-weight: 900;
+            color: #FFD700;
+            text-transform: uppercase;
+            line-height: 0.9;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+        .subtitle {
+            font-size: 18pt;
+            font-weight: 400;
+            color: #eee;
+            margin-bottom: 50px;
+            font-style: italic;
+        }
+        .author-name {
+            font-size: 22pt;
+            margin-top: 40px;
+            border-top: 2px solid #FFD700;
+            padding-top: 10px;
+            font-weight: bold;
+        }
+
+        /* Back Cover Styles */
+        .back-cover {
+            background-color: #000;
+            font-size: 11pt;
+            line-height: 1.6;
+        }
+        .blurb-header {
+            color: #FFD700;
+            font-size: 14pt;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .barcode-placeholder {
+            position: absolute;
+            bottom: 0.5in;
+            left: 0.5in;
+            width: 2in;
+            height: 1.2in;
+            background-color: #fff;
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8pt;
+        }
+        .author-bio {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #111;
+            border-left: 3px solid #FFD700;
+            font-size: 10pt;
+        }
+
+        /* Guide markers (Do not print these if you want a clean look, but helpful for design) */
+        .safety-guide {
+            position: absolute;
+            border: 1px dashed rgba(255,255,255,0.1);
+            top: 0.25in; bottom: 0.25in; left: 0.25in; right: 0.25in;
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-<div class="header">
-<div class="logo">INDIA TODAY</div>
-<div class="tagline">News, Analysis, Investigations | Latest Breaking News</div>
-</div>
-<div class="breadcrumb">Home » India » Consumer Affairs » News</div>
-<h1 class="headline">Maybelline Cream Allegedly Causes Permanent Facial Disfigurement; Consumer Alleges Life Ruined, Firm Seeks More Details</h1>
-<h2 class="subhead">Manoj claims severe adverse reaction to cosmetic product left him disfigured; says proof already submitted, calls response insensitive and negligent</h2>
-<div class="byline"><strong>Investigation by India Today Consumer Desk</strong></div>
-<div class="dateline">New Delhi | Updated: 26 February 2026, 20:15 IST</div>
-<div class="article-body">
-<p>New Delhi: A consumer has made a grave allegation against beauty major Maybelline New York, claiming that a defective chemical cream caused severe, permanent facial disfigurement and destroyed his personal and professional life. The complainant, identified as Manoj, has stated that he already submitted photographic evidence of the damage, but the company’s consumer care team has replied asking for the same details again, prompting outrage and accusations of delay tactics.</p>
-<p>In an email response dated 22 January 2026, Maybelline’s consumer care division asked Manoj to share details to enable a review by medical and technical experts. Manoj has vehemently denied any failure to submit evidence and accused the brand of ignoring his trauma.</p>
-<div class="pullquote">“They have damaged my face, disfigured me permanently, and destroyed my whole life. I already sent the images. They are negligent and avoiding accountability.” — Manoj, Complainant</div>
-<p>Manoj told India Today that he suffered an extreme adverse reaction to the cream, leading to permanent scarring, discoloration, and visible disfigurement. He said the harm has caused severe mental distress, social isolation, and loss of livelihood, amounting to a complete upheaval of his life.</p>
-<p>The consumer has slammed the company’s response as insensitive, unethical, and designed to evade liability. He has demanded immediate acknowledgment, full liability, urgent medical support, and compensation for the irreversible harm caused by the allegedly defective product.</p>
-<div class="alert">
-<strong>India Today has learned:</strong><br>
-• Complainant claims photographic proof submitted earlier<br>
-• Firm asks for same details in official reply<br>
-• Alleged permanent facial disfigurement and life disruption<br>
-• Consumer threatens regulatory & legal action
-</div>
-<p>Maybelline New York is yet to respond to India Today’s request for comment on the allegations, the status of the complaint, and the review process. The company has not clarified whether the evidence was received, lost, or not processed.</p>
-<p>Consumer rights activists say such delays in addressing severe adverse reactions from cosmetics violate fair trade practices and consumer protection norms. Experts warn that cosmetic products causing permanent physical harm fall under strict liability and demand prompt redressal.</p>
-<p>Manoj has warned he will escalate the matter to consumer courts, drug and cosmetic regulatory authorities, and launch a public campaign to warn other users if the company continues to delay or ignore his grievance.</p>
-<p>India Today will closely monitor the case and provide updates as the story develops.</p>
-</div>
-</div>
+    <div class="canvas">
+        <section class="back-cover">
+            <div class="blurb-header">The System is Rigged. Here is the Proof.</div>
+            <p>For decades, the State Bank of India (SBI) has been marketed as the bedrock of trust for the Indian middle class. We were told it was the "Banker to Every Indian." We were lied to.</p>
+            
+            <p>In <b>Why SBI Betrayed India</b>, researcher and rationalist <b>Aguru Manoj Kumar</b> strips away the corporate propaganda to reveal a chilling reality: a multi-billion-rupee machinery designed to siphon wealth from the many to the few.</p>
+            
+            <div class="author-bio">
+                <b>About the Author:</b> Aguru Manoj Kumar is an author, researcher, and civil engineer. A former Scale-1 Officer at CGGB and former Group-A Officer, he applies a rigorous, evidence-based methodology to investigate systemic corruption.
+            </div>
+
+            <div class="barcode-placeholder">KDP BARCODE AREA</div>
+        </section>
+
+        <section class="spine"></section>
+
+        <section class="front-cover">
+            <div class="main-title">WHY SBI<br>BETRAYED<br>INDIA</div>
+            <div class="subtitle">The Scam, the Hypocrisy, and the<br>Unpunished Criminals</div>
+            <div class="author-name">AGURU MANOJ KUMAR</div>
+        </section>
+    </div>
 </body>
 </html>
